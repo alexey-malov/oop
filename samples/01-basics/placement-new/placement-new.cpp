@@ -26,7 +26,7 @@ void main()
 {
 	const size_t NUM_POINTS = 100;
 
-	// Выделили массив char-ов, размером, способным вместить один объект типа Point
+	// Выделили массив char-ов, размером, способным вместить NUM_POINTS объектов типа Point
 	Point * mem = reinterpret_cast<Point*>(malloc(sizeof(Point) * NUM_POINTS));
 	if (mem != nullptr)
 	{
@@ -36,7 +36,9 @@ void main()
 		{
 			for (i = 0; i < NUM_POINTS; ++i)
 			{
-				// Конструируем Point по адресу mem+i, равный адресу i-го элемента массива
+				// Конструируем при помощи placement new объект Point по адресу mem+i, 
+				// равному адресу i-го элемента массива
+				// http://www.cplusplus.com/reference/new/operator%20new/
 				Point * pt = new (mem + i) Point(i, i * 2, "This is a point #" + to_string(i));
 				// Возвращенный указатель будет иметь тип Point* и хранить адрес (mem+i)
 				assert(pt == (mem + i));
