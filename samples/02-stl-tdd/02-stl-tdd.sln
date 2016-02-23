@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test-Driven-Development", "Test-Driven-Development\Test-Driven-Development.vcxproj", "{F95960B9-B577-4B92-B80A-831239D73F0F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stl-containers", "stl-containers\stl-containers.vcxproj", "{790BBA5D-661D-427E-95AC-CCBD96BDA4C6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Transformer", "Transformer\Transformer.vcxproj", "{ED4D7C2F-D827-405D-B9AB-9F93F8B0202C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F95960B9-B577-4B92-B80A-831239D73F0F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F95960B9-B577-4B92-B80A-831239D73F0F}.Debug|Win32.Build.0 = Debug|Win32
+		{F95960B9-B577-4B92-B80A-831239D73F0F}.Release|Win32.ActiveCfg = Release|Win32
+		{F95960B9-B577-4B92-B80A-831239D73F0F}.Release|Win32.Build.0 = Release|Win32
+		{790BBA5D-661D-427E-95AC-CCBD96BDA4C6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{790BBA5D-661D-427E-95AC-CCBD96BDA4C6}.Debug|Win32.Build.0 = Debug|Win32
+		{790BBA5D-661D-427E-95AC-CCBD96BDA4C6}.Release|Win32.ActiveCfg = Release|Win32
+		{790BBA5D-661D-427E-95AC-CCBD96BDA4C6}.Release|Win32.Build.0 = Release|Win32
+		{ED4D7C2F-D827-405D-B9AB-9F93F8B0202C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ED4D7C2F-D827-405D-B9AB-9F93F8B0202C}.Debug|Win32.Build.0 = Debug|Win32
+		{ED4D7C2F-D827-405D-B9AB-9F93F8B0202C}.Release|Win32.ActiveCfg = Release|Win32
+		{ED4D7C2F-D827-405D-B9AB-9F93F8B0202C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
