@@ -4,7 +4,9 @@
 #include <numeric>
 #include <functional>
 #include <boost/range/algorithm/transform.hpp>
+#pragma warning (push, 3)
 #include <boost/phoenix.hpp>
+#pragma warning (pop)
 
 using namespace std;
 using namespace std::placeholders;

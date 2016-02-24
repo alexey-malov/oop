@@ -30,7 +30,7 @@ BOOST_AUTO_TEST_SUITE(ProcessVector_function)
 
 	// при обработке вектора с одним положительным числом
 	BOOST_AUTO_TEST_SUITE(when_processing_a_vector_with_one_positive_number)
-		// должен добавить это число ко всем элементам вектора
+		// должна добавить это число ко всем элементам вектора
 		BOOST_AUTO_TEST_CASE(should_add_this_number_to_each_element)
 		{
 			vector<double> numbers = { -1, 3.5 };
@@ -39,6 +39,8 @@ BOOST_AUTO_TEST_SUITE(ProcessVector_function)
 			BOOST_CHECK(VectorsAreEqual( numbers, 
 				{ (-1 + 3.5), (3.5 + 3.5) }
 			));
+			// Аналогично следующей инструкии:
+			// BOOST_CHECK(numbers == vector<double>({ (-1 + 3.5), (3.5 + 3.5) }));
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
