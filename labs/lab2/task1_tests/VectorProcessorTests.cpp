@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_SUITE(ProcessVector_function)
 	BOOST_AUTO_TEST_CASE(does_not_change_vector_containing_no_positive_numbers)
 	{
 		vector<double> numbers = { -4, 0, -3 };
-		auto copy(numbers);
+		auto copy(numbers); // аналог vector<double> copy(numbers);
 		ProcessVector(numbers);
 		BOOST_CHECK(numbers == copy);
 	}
@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_SUITE(ProcessVector_function)
 			BOOST_CHECK(VectorsAreEqual( numbers, 
 				{ (-1 + 3.5), (3.5 + 3.5) }
 			));
-			// Аналогично следующей инструкии:
+			// Аналогично следующей инструкции:
 			// BOOST_CHECK(numbers == vector<double>({ (-1 + 3.5), (3.5 + 3.5) }));
 		}
 	BOOST_AUTO_TEST_SUITE_END()
