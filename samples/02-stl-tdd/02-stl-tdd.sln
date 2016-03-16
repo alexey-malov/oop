@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CustomIterator", "CustomIte
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringReference", "StringReference\StringReference.vcxproj", "{0D0BB9E9-F59D-4F9E-99C6-7BE726417301}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BoostVariant", "BoostVariant\BoostVariant.vcxproj", "{9D8116E4-92CA-4077-9D91-44870E2D357E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -39,6 +41,10 @@ Global
 		{0D0BB9E9-F59D-4F9E-99C6-7BE726417301}.Debug|Win32.Build.0 = Debug|Win32
 		{0D0BB9E9-F59D-4F9E-99C6-7BE726417301}.Release|Win32.ActiveCfg = Release|Win32
 		{0D0BB9E9-F59D-4F9E-99C6-7BE726417301}.Release|Win32.Build.0 = Release|Win32
+		{9D8116E4-92CA-4077-9D91-44870E2D357E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9D8116E4-92CA-4077-9D91-44870E2D357E}.Debug|Win32.Build.0 = Debug|Win32
+		{9D8116E4-92CA-4077-9D91-44870E2D357E}.Release|Win32.ActiveCfg = Release|Win32
+		{9D8116E4-92CA-4077-9D91-44870E2D357E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
