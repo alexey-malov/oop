@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Transformer", "Transformer\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CustomIterator", "CustomIterator\CustomIterator.vcxproj", "{A5157FE6-A998-471F-BDB9-E189ADF98386}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringReference", "StringReference\StringReference.vcxproj", "{0D0BB9E9-F59D-4F9E-99C6-7BE726417301}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -33,6 +35,10 @@ Global
 		{A5157FE6-A998-471F-BDB9-E189ADF98386}.Debug|Win32.Build.0 = Debug|Win32
 		{A5157FE6-A998-471F-BDB9-E189ADF98386}.Release|Win32.ActiveCfg = Release|Win32
 		{A5157FE6-A998-471F-BDB9-E189ADF98386}.Release|Win32.Build.0 = Release|Win32
+		{0D0BB9E9-F59D-4F9E-99C6-7BE726417301}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0D0BB9E9-F59D-4F9E-99C6-7BE726417301}.Debug|Win32.Build.0 = Debug|Win32
+		{0D0BB9E9-F59D-4F9E-99C6-7BE726417301}.Release|Win32.ActiveCfg = Release|Win32
+		{0D0BB9E9-F59D-4F9E-99C6-7BE726417301}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
