@@ -75,14 +75,11 @@ private:
 
 	static void DestroyItems(T *from, T *to)
 	{
-		if (from == nullptr)
-		{
-			return;
-		}
 		// dst - адрес объект, при конструирование которого было выброшено исключение
 		// to - первый скорнструированный объект
-		while (--to >= from)
+		for (; to != from; )
 		{
+			--to;
 			// явно вызываем деструктор для шаблонного типа T
 			to->~T();
 		}
