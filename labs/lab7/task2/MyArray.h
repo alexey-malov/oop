@@ -6,6 +6,15 @@ class CMyArray
 public:
 	size_t GetSize()const
 	{
-		return 0;
+		return m_end - m_begin;
 	}
+
+	size_t GetCapacity()const
+	{
+		return m_endOfCapacity - m_begin;
+	}
+private:
+	T *m_begin = nullptr;
+	T *m_end = nullptr;
+	T *m_endOfCapacity = nullptr;
 };

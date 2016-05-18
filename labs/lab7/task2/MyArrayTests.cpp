@@ -18,4 +18,8 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 	{
 		BOOST_CHECK_EQUAL(arr.GetSize(), 0u);
 	}
+	BOOST_AUTO_TEST_CASE(has_0_capacity)
+	{
+		BOOST_CHECK_EQUAL(arr.GetCapacity(), 0u);
+	}
 BOOST_AUTO_TEST_SUITE_END()
