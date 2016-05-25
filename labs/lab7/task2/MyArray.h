@@ -7,6 +7,27 @@ template <typename T>
 class CMyArray
 {
 public:
+	CMyArray() = default;
+
+	CMyArray(const CMyArray& arr)
+	{
+		const auto size = arr.GetSize();
+		if (size != 0)
+		{
+			m_begin = RawAlloc(size);
+			try
+			{
+				CopyItems(arr.m_begin, arr.m_end, m_begin, m_end);
+				m_endOfCapacity = m_end;
+			}
+			catch (...)
+			{
+				DeleteItems(m_begin, m_end);
+				throw;
+			}
+		}
+	}
+
 	void Append(const T & value)
 	{
 		if (m_end == m_endOfCapacity) // no free space
@@ -77,12 +98,12 @@ private:
 	}
 
 	// Копирует элементы из текущего вектора в to, возвращает newEnd
-	static void CopyItems(T *begin, T *end, T * const dstBegin, T * & dstEnd)
+	static void CopyItems(const T *srcBegin, T *srcEnd, T * const dstBegin, T * & dstEnd)
 	{
-		for (dstEnd = dstBegin; begin != end; ++begin, ++dstEnd)
+		for (dstEnd = dstBegin; srcBegin != srcEnd; ++srcBegin, ++dstEnd)
 		{
 			// Construct "T" at "dstEnd" as a copy of "*begin"
-			new (dstEnd)T(*begin);
+			new (dstEnd)T(*srcBegin);
 		}
 	}
 
