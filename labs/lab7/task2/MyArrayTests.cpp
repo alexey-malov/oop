@@ -5,7 +5,9 @@ using namespace std;
 
 struct ArrayItem
 {
-
+	ArrayItem(int value = 0) : value(value)
+	{}
+	int value;
 };
 
 struct EmptyStringArray
@@ -24,14 +26,32 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 			BOOST_CHECK_EQUAL(arr.GetCapacity(), 0u);
 		}
 	BOOST_AUTO_TEST_SUITE_END()
-
 	BOOST_AUTO_TEST_SUITE(after_appending_an_item)
-		BOOST_AUTO_TEST_CASE(increases_its_size)
+		BOOST_AUTO_TEST_CASE(increases_its_size_and_capacity)
 		{
 			arr.Append(ArrayItem());
 			BOOST_CHECK_EQUAL(arr.GetSize(), 1u);
+			BOOST_CHECK_EQUAL(arr.GetCapacity(), 1u);
 			arr.Append(ArrayItem());
 			BOOST_CHECK_EQUAL(arr.GetSize(), 2u);
+			BOOST_CHECK_EQUAL(arr.GetCapacity(), 2u);
+			arr.Append(ArrayItem());
+			BOOST_CHECK_EQUAL(arr.GetSize(), 3u);
+			BOOST_CHECK_EQUAL(arr.GetCapacity(), 4u);
+			arr.Append(ArrayItem());
+			BOOST_CHECK_EQUAL(arr.GetSize(), 4u);
+			BOOST_CHECK_EQUAL(arr.GetCapacity(), 4u);
+		}
+		BOOST_AUTO_TEST_CASE(it_becomes_available_at_the_back)
+		{
+			arr.Append(1);
+			BOOST_CHECK_EQUAL(arr.GetBack().value, 1);
+			arr.Append(2);
+			BOOST_CHECK_EQUAL(arr.GetBack().value, 2);
+			arr.Append(3);
+			BOOST_CHECK_EQUAL(arr.GetBack().value, 3);
+			arr.Append(4);
+			BOOST_CHECK_EQUAL(arr.GetBack().value, 4);
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE_END()

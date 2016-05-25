@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <new>
 #include <algorithm>
@@ -18,7 +18,7 @@ public:
 			try
 			{
 				CopyItems(m_begin, m_end, newBegin, newEnd);
-				// Êîíñòðóèðóåì êîïèþ value ïî àäðåñó newItemLocation
+				// ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐ¸Ñ€ÑƒÐµÐ¼ ÐºÐ¾Ð¿Ð¸ÑŽ value Ð¿Ð¾ Ð°Ð´Ñ€ÐµÑÑƒ newItemLocation
 				new (newEnd)T(value);
 				++newEnd;
 			}
@@ -29,16 +29,28 @@ public:
 			}
 			DeleteItems(m_begin, m_end);
 
-			// Ïåðåêëþ÷àåìñÿ íà èñïîëüçîâàíèå íîâîãî õðàíèëèùà ýëåìåíòîâ
+			// ÐŸÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð°ÐµÐ¼ÑÑ Ð½Ð° Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ñ…Ñ€Ð°Ð½Ð¸Ð»Ð¸Ñ‰Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²
 			m_begin = newBegin;
 			m_end = newEnd;
 			m_endOfCapacity = m_begin + newCapacity;
-
 		}
 		else // has free space
 		{
-
+			new (m_end) T (value);
+			++m_end;
 		}
+	}
+
+	T & GetBack()
+	{
+		assert(GetSize() != 0u);
+		return m_end[-1];
+	}
+
+	const T & GetBack()const
+	{
+		assert(GetSize() != 0u);
+		return m_end[-1];
 	}
 
 	size_t GetSize()const
@@ -58,12 +70,13 @@ private:
 
 	static void DeleteItems(T *begin, T *end)
 	{
-		// Ðàçðóøàåì ñòàðûå ýëåìåíòû
+		// Ð Ð°Ð·Ñ€ÑƒÑˆÐ°ÐµÐ¼ ÑÑ‚Ð°Ñ€Ñ‹Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹
 		DestroyItems(begin, end);
-		// Îñâîáîæäàåì îáëàñòü ïàìÿòè äëÿ èõ õðàíåíèÿ
+		// ÐžÑÐ²Ð¾Ð±Ð¾Ð¶Ð´Ð°ÐµÐ¼ Ð¾Ð±Ð»Ð°ÑÑ‚ÑŒ Ð¿Ð°Ð¼ÑÑ‚Ð¸ Ð´Ð»Ñ Ð¸Ñ… Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ñ
 		RawDealloc(begin);
 	}
-	// Êîïèðóåò ýëåìåíòû èç òåêóùåãî âåêòîðà â to, âîçâðàùàåò newEnd
+
+	// ÐšÐ¾Ð¿Ð¸Ñ€ÑƒÐµÑ‚ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð¸Ð· Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð° Ð² to, Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ newEnd
 	static void CopyItems(T *begin, T *end, T * const dstBegin, T * & dstEnd)
 	{
 		for (dstEnd = dstBegin; begin != end; ++begin, ++dstEnd)
@@ -75,12 +88,12 @@ private:
 
 	static void DestroyItems(T *from, T *to)
 	{
-		// dst - àäðåñ îáúåêò, ïðè êîíñòðóèðîâàíèå êîòîðîãî áûëî âûáðîøåíî èñêëþ÷åíèå
-		// to - ïåðâûé ñêîðíñòðóèðîâàííûé îáúåêò
-		for (; to != from; )
+		// dst - Ð°Ð´Ñ€ÐµÑ Ð¾Ð±ÑŠÐµÐºÑ‚, Ð¿Ñ€Ð¸ ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð³Ð¾ Ð±Ñ‹Ð»Ð¾ Ð²Ñ‹Ð±Ñ€Ð¾ÑˆÐµÐ½Ð¾ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ
+		// to - Ð¿ÐµÑ€Ð²Ñ‹Ð¹ ÑÐºÐ¾Ñ€Ð½ÑÑ‚Ñ€ÑƒÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚
+		while (to != from)
 		{
 			--to;
-			// ÿâíî âûçûâàåì äåñòðóêòîð äëÿ øàáëîííîãî òèïà T
+			// ÑÐ²Ð½Ð¾ Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÐ¼ Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð´Ð»Ñ ÑˆÐ°Ð±Ð»Ð¾Ð½Ð½Ð¾Ð³Ð¾ Ñ‚Ð¸Ð¿Ð° T
 			to->~T();
 		}
 	}
