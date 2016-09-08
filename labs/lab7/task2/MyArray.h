@@ -88,7 +88,6 @@ public:
 		DeleteItems(m_begin, m_end);
 	}
 private:
-
 	static void DeleteItems(T *begin, T *end)
 	{
 		// Разрушаем старые элементы
