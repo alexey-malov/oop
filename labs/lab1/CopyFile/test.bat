@@ -18,8 +18,15 @@ if ERRORLEVEL 1 goto err
 fc.exe %TEMP%\multiline.txt multiline.txt
 if ERRORLEVEL 1 goto err
 
+rem ожидаем ненулевой код ошибки при копировании несуществующего файла
+%PROGRAM% non-existing-file-name.txt %TEMP%\non-existing-file-name.txt > "%TEMP%\output.txt"
+if NOT ERRORLEVEL 1 goto err
+fc.exe "%TEMP%\output.txt" expected-output-when-input-file-is-missing.txt
+if ERRORLEVEL 1 goto err
 
-
+rem ожидаем ненулевой код ошибки при невозможности записи в выходной файл (в исполняемый файл программы)
+%PROGRAM% multiline.txt %PROGRAM% > %TEMP%\output.txt
+if NOT ERRORLEVEL 1 goto err
 
 echo Program testing succeeded
 exit 0
