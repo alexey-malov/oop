@@ -29,6 +29,8 @@ void FreeFunction(int someParam1)
 
 int main(int argc, char* argv[])
 {
+	// Между именем вызываемой функции и списком ее параметров пробел не ставится
+	FreeFunction();
 	SomeStructName s;
 	s.fieldName = 5;
 	return 0;
