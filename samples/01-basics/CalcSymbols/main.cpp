@@ -1,4 +1,6 @@
+﻿#include <iostream>
 
+int main() /* подсчет цифр, символов-разделителей и прочих символов */
 {
 	int numSpaces = 0;
 	int numDigits[10] = {};
