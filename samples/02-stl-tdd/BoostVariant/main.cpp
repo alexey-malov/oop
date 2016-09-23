@@ -1,4 +1,7 @@
-﻿#include <boost/variant.hpp>
+﻿#pragma warning(push)
+#pragma warning(disable:4702) // unreachable code 
+#include <boost/variant.hpp>
+#pragma warning(pop)
 #include <utility>
 #include <array>
 #include <iostream>
@@ -53,12 +56,13 @@ private:
 // Решатель квадратного уравнения
 QuadraticEquationSolution SolveQuadraticEquation(double a, double b, double c)
 {
+	(void)&a; (void)&b; (void)&c;
 	// Напишите реализацию самостоятельно, возвращая одни из следующих результатов
 
 	return NotAQuadraticEquation();
-	return NoRealRoots();
-	return std::make_pair(3.17, 17.8); // Two roots
-	return 42.0; // one root
+	//return NoRealRoots();
+	//return std::make_pair(3.17, 17.8); // Two roots
+	//return 42.0; // one root
 }
 
 

@@ -96,7 +96,7 @@ void main()
 				cout << "\t" << charOcc.first << ": " << charOcc.second << endl;
 			}
 
-			/*for (map<char, int>::const_iterator it = characterOccurrences.begin(); it != characterOccurrences.end(); ++it)
+			/*for (auto it = characterOccurrences.begin(); it != characterOccurrences.end(); ++it)
 			{
 				const auto & charOcc = *it;
 				cout << "\t" << charOcc.first << ": " << charOcc.second << endl;

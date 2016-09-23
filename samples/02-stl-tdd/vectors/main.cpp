@@ -57,7 +57,7 @@ struct PointDbl
 
 void main()
 {
-	//Test1();
+	Test1();
 
 	vector<Point> points = { 
 		{0, 0}, {20, 10}, {30, 30} 

@@ -9,8 +9,7 @@ using boost::string_ref;
 int main()
 {
 	const string url = "http://long.domain.name.at.google.com/long.document.path.txt";
-	// Решение с использование substr
-
+	// Решение с использованием substr
 
 	{
 		auto t = chrono::steady_clock().now().time_since_epoch();

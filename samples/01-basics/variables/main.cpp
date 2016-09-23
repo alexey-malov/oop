@@ -96,11 +96,13 @@ int main()
 	// Глобальные переменные, объявленные в других cpp-файлах
 	{
 		// Переменная globalVariableDeclaredInVariablesCpp объявлена в файле variables.cpp
-		// Чтобы обратиться к ней из других файлов, нужно предварительно объявить ее внешней при помощи ключевого слова extern
+		// Чтобы обратиться к ней из других файлов, нужно предварительно объявить
+		// ее внешней при помощи ключевого слова extern
 		extern int globalVariableDeclaredInVariablesCpp;
 		assert(globalVariableDeclaredInVariablesCpp == 12345);
 
-		// А эта переменная была объявлена внешней в подключенном нами заголовочном файле variables.h
+		// А эта переменная была объявлена внешней в подключенном нами заголовочном
+		// файле variables.h
 		assert(someOtherGlobalVariableDeclaredInVariablesCpp == 54321);
 	}
 
