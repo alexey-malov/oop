@@ -14,9 +14,8 @@ bool FindStingInStream(istream & haystack,
 	const string& needle, 
 	const FindStringCallback & callback)
 {
-	int lineIndex = 1;
 	string line;
-	while (getline(haystack, line))
+	for (int lineIndex = 1; getline(haystack, line); ++lineIndex)
 	{
 		auto pos = line.find(needle);
 		if (pos != string::npos)
@@ -24,7 +23,6 @@ bool FindStingInStream(istream & haystack,
 			// Передаем в функцию обратного вызова информацию о первом найденном вхождении подстроки
 			callback(lineIndex, line, pos);
 		}
-		++lineIndex;
 	}
 	return true;
 }
