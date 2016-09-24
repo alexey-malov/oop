@@ -27,6 +27,9 @@ void FreeFunction(int someParam1)
 	}
 }
 
+// Константы используют UNDERSCORE_SYNTAX
+const int NUMBER_OF_USERS = 100500;
+	
 int main(int argc, char* argv[])
 {
 	// Между именем вызываемой функции и списком ее параметров пробел не ставится
