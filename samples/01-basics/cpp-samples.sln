@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "variables", "variables\variables.vcxproj", "{EDF554B1-8D24-4A13-AE48-7992AB0A2775}"
 EndProject
@@ -44,6 +44,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CalcSymbols", "CalcSymbols\CalcSymbols.vcxproj", "{1D90A923-0614-4FBC-B343-91C64D5D19F1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "switch-case", "switch-case\switch-case.vcxproj", "{C19C0EFE-36AB-41E4-9089-D7B3D5A7B03C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stream-moving", "stream-moving\stream-moving.vcxproj", "{364D2A1B-F481-415F-BA7E-C41DC472EA0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -163,6 +165,14 @@ Global
 		{C19C0EFE-36AB-41E4-9089-D7B3D5A7B03C}.Release|Win32.Build.0 = Release|Win32
 		{C19C0EFE-36AB-41E4-9089-D7B3D5A7B03C}.Release|x64.ActiveCfg = Release|x64
 		{C19C0EFE-36AB-41E4-9089-D7B3D5A7B03C}.Release|x64.Build.0 = Release|x64
+		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Debug|Win32.Build.0 = Debug|Win32
+		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Debug|x64.ActiveCfg = Debug|x64
+		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Debug|x64.Build.0 = Debug|x64
+		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Release|Win32.ActiveCfg = Release|Win32
+		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Release|Win32.Build.0 = Release|Win32
+		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Release|x64.ActiveCfg = Release|x64
+		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
