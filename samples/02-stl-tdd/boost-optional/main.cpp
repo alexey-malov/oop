@@ -1,4 +1,4 @@
-#include <boost/optional.hpp>
+﻿#include <boost/optional.hpp>
 #include <iostream>
 #include <string>
 
@@ -11,7 +11,7 @@ enum class Color
 	Red, Yellow, Green, Black, White
 };
 
-// �����, � ������� ����� ���� ��� �� ���� ����� ����
+// Точка, у которой может быть или не быть задан цвет
 struct Point
 {
 	int x;
@@ -40,6 +40,30 @@ std::ostream & PrintPoint(ostream & strm, const Point& point)
 	strm << (point.color ? ColorToString(point.color.get()) : "undefined color") << "}";
 	return strm;
 }
+
+struct Vector2d
+{
+	double x;
+	double y;
+};
+
+struct LineSegment
+{
+	Vector2d start;
+	Vector2d end;
+};
+
+optional<Vector2d> IntersectLineSegements(const LineSegment &l1, const LineSegment &l2)
+{
+	optional<Vector2d> intersectionPoint; // по умолчанию optional хранит занчение "не инициализировано"
+	if (true)
+	{
+		intersectionPoint = Vector2d { 3.5, 2.8 };
+	}
+	// TODO: вычислить точку пересечения отрезков прямых или вернуть none, если такой точки нет
+	return intersectionPoint; // пересечения нет
+}
+
 
 int main()
 {
