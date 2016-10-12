@@ -14,7 +14,7 @@ struct RemoteControlDependencies
 {
 	CTVSet tv;
 	stringstream input;
-	ostringstream output;
+	stringstream output;
 };
 
 struct RemoteControlFixture : RemoteControlDependencies
@@ -30,6 +30,8 @@ struct RemoteControlFixture : RemoteControlDependencies
 	// Она принимает ожидаемый номер канала expectedChannel и expectedOutput
 	void VerifyCommandHandling(const string& command, const optional<int> & expectedChannel, const string& expectedOutput)
 	{
+		// Предварительно очищаем содержимое выходного потока
+		output.str("");
 		input << command;
 		BOOST_CHECK(remoteControl.HandleCommand());
 		BOOST_CHECK_EQUAL(tv.IsTurnedOn(), expectedChannel.is_initialized());
