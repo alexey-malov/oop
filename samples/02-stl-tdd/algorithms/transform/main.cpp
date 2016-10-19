@@ -3,22 +3,28 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
+#include <functional>
+#include <boost/range/adaptor/filtered.hpp>
+#include <boost/range/algorithm/transform.hpp>
 
 using namespace std;
+using namespace std::placeholders;
+using boost::transform;
+using boost::adaptors::filtered;
+
 
 void IntsToStrings()
 {
 	vector<int> ints = {1, 2, -3, 42, 13};
 
-	vector<string> strings;
-	strings.reserve(ints.size());
+	vector<int> result;
 
-	transform(ints.begin(), ints.end(), back_inserter(strings), [](int number){
-		return "{" + to_string(number) + "}";
+	transform(ints | filtered([](int x) {
+		return x > 0;
+	}), back_inserter(result), [](auto x) {
+		return x + 5; 
 	});
 
-	copy(strings.begin(), strings.end(), ostream_iterator<string>(cout, ", "));
-	cout << endl;
 }
 
 void main()

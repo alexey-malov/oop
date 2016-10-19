@@ -10,8 +10,11 @@ CRemoteControl::CRemoteControl(CTVSet & tv, std::istream & input, std::ostream &
 	, m_input(input)
 	, m_output(output)
 	, m_actionMap({
-		{ "TurnOn", bind(&CRemoteControl::TurnOn, this, _1) },
+		{ "TurnOn", [this](istream & strm) {
+				return TurnOn(strm);
+			} },
 		{ "TurnOff", bind(&CRemoteControl::TurnOff, this, _1) },
+		{ "Info", bind(&CRemoteControl::Info, this, _1) }
 	})
 {
 }
@@ -28,10 +31,10 @@ bool CRemoteControl::HandleCommand()
 	auto it = m_actionMap.find(action);
 	if (it != m_actionMap.end())
 	{
-		it->second(strm);
+		return it->second(strm);
 	}
 	
-	return true;
+	return false;
 }
 
 bool CRemoteControl::TurnOn(std::istream & /*args*/)
@@ -45,5 +48,16 @@ bool CRemoteControl::TurnOff(std::istream & /*args*/)
 {
 	m_tv.TurnOff();
 	m_output << "TV is turned off" << endl;
+	return true;
+}
+
+bool CRemoteControl::Info(std::istream & /*args*/)
+{
+	string info = (m_tv.IsTurnedOn())
+		? ("TV is turned on\nChannel is: " + to_string(m_tv.GetChannel()) + "\n")
+		: "TV is turned off\n";
+
+	m_output << info;
+	
 	return true;
 }

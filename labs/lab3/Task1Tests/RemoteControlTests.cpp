@@ -31,8 +31,9 @@ struct RemoteControlFixture : RemoteControlDependencies
 	void VerifyCommandHandling(const string& command, const optional<int> & expectedChannel, const string& expectedOutput)
 	{
 		// Предварительно очищаем содержимое выходного потока
-		output.str("");
-		input << command;
+		output = stringstream();
+		input = stringstream();
+		BOOST_CHECK(input << command);
 		BOOST_CHECK(remoteControl.HandleCommand());
 		BOOST_CHECK_EQUAL(tv.IsTurnedOn(), expectedChannel.is_initialized());
 		BOOST_CHECK_EQUAL(tv.GetChannel(), expectedChannel.get_value_or(0));
@@ -54,7 +55,7 @@ BOOST_FIXTURE_TEST_SUITE(Remote_Control, RemoteControlFixture)
 		VerifyCommandHandling("TurnOff", none, "TV is turned off\n");
 	}
 
-/*
+
 	// Раскомментируйте тест, проверяющий работу команды Info
 	// Убедитесь, что он не проходит (т.к. в CRemoteControl отсутствует требуемый функционал)
 	// Доработайте простейшим образом класс CRemoteControl, чтобы этот тест и предыдущие проходили
@@ -69,7 +70,7 @@ BOOST_FIXTURE_TEST_SUITE(Remote_Control, RemoteControlFixture)
 		tv.SelectChannel(42);
 		VerifyCommandHandling("Info", 42, "TV is turned on\nChannel is: 42\n");
 	}
-*/
+
 
 /*
 	// Раскомментируйте тест, проверяющий работу команды SelectChannel 
