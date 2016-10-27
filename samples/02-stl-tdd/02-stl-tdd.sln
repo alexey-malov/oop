@@ -61,6 +61,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unordered_map_with_custom_h
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boost-optional", "boost-optional\boost-optional.vcxproj", "{E14CCB5C-14E1-4935-8136-A0CC672C7FE3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tuples", "tuples\tuples.vcxproj", "{330A70D9-912A-4C5C-B64A-C471A3E9EA39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -285,6 +287,14 @@ Global
 		{E14CCB5C-14E1-4935-8136-A0CC672C7FE3}.Release|Win32.Build.0 = Release|Win32
 		{E14CCB5C-14E1-4935-8136-A0CC672C7FE3}.Release|x64.ActiveCfg = Release|x64
 		{E14CCB5C-14E1-4935-8136-A0CC672C7FE3}.Release|x64.Build.0 = Release|x64
+		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Debug|Win32.ActiveCfg = Debug|Win32
+		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Debug|Win32.Build.0 = Debug|Win32
+		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Debug|x64.ActiveCfg = Debug|x64
+		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Debug|x64.Build.0 = Debug|x64
+		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Release|Win32.ActiveCfg = Release|Win32
+		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Release|Win32.Build.0 = Release|Win32
+		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Release|x64.ActiveCfg = Release|x64
+		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
