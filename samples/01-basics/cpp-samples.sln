@@ -47,6 +47,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "switch-case", "switch-case\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stream-moving", "stream-moving\stream-moving.vcxproj", "{364D2A1B-F481-415F-BA7E-C41DC472EA0A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lambdas", "lambdas\lambdas.vcxproj", "{FB0E41CC-4A31-4BC0-9244-C65603D98EB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -173,6 +175,14 @@ Global
 		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Release|Win32.Build.0 = Release|Win32
 		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Release|x64.ActiveCfg = Release|x64
 		{364D2A1B-F481-415F-BA7E-C41DC472EA0A}.Release|x64.Build.0 = Release|x64
+		{FB0E41CC-4A31-4BC0-9244-C65603D98EB1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FB0E41CC-4A31-4BC0-9244-C65603D98EB1}.Debug|Win32.Build.0 = Debug|Win32
+		{FB0E41CC-4A31-4BC0-9244-C65603D98EB1}.Debug|x64.ActiveCfg = Debug|x64
+		{FB0E41CC-4A31-4BC0-9244-C65603D98EB1}.Debug|x64.Build.0 = Debug|x64
+		{FB0E41CC-4A31-4BC0-9244-C65603D98EB1}.Release|Win32.ActiveCfg = Release|Win32
+		{FB0E41CC-4A31-4BC0-9244-C65603D98EB1}.Release|Win32.Build.0 = Release|Win32
+		{FB0E41CC-4A31-4BC0-9244-C65603D98EB1}.Release|x64.ActiveCfg = Release|x64
+		{FB0E41CC-4A31-4BC0-9244-C65603D98EB1}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -194,5 +204,6 @@ Global
 		{98F05433-7295-49F8-92DB-7980C3B748B4} = {C74FB830-DCD2-4CB1-A1A8-F95A9C48B6AE}
 		{1D90A923-0614-4FBC-B343-91C64D5D19F1} = {AF896B69-EBA7-4204-A392-3BE0682F1615}
 		{C19C0EFE-36AB-41E4-9089-D7B3D5A7B03C} = {0C01B2E2-DEA3-4603-8FDA-A4EC25405868}
+		{FB0E41CC-4A31-4BC0-9244-C65603D98EB1} = {0C01B2E2-DEA3-4603-8FDA-A4EC25405868}
 	EndGlobalSection
 EndGlobal
