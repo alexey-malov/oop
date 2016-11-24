@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "variables", "variables\variables.vcxproj", "{EDF554B1-8D24-4A13-AE48-7992AB0A2775}"
 EndProject
@@ -50,6 +50,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lambdas", "lambdas\lambdas.vcxproj", "{FB0E41CC-4A31-4BC0-9244-C65603D98EB1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sharedptr", "sharedptr\sharedptr.vcxproj", "{9FD59C9A-2CF7-4E8A-BE2B-4A17317323C9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "locales", "locales\locales.vcxproj", "{D6BA9701-5503-4474-BD8D-2E9A8A21F309}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -193,6 +195,14 @@ Global
 		{9FD59C9A-2CF7-4E8A-BE2B-4A17317323C9}.Release|Win32.Build.0 = Release|Win32
 		{9FD59C9A-2CF7-4E8A-BE2B-4A17317323C9}.Release|x64.ActiveCfg = Release|x64
 		{9FD59C9A-2CF7-4E8A-BE2B-4A17317323C9}.Release|x64.Build.0 = Release|x64
+		{D6BA9701-5503-4474-BD8D-2E9A8A21F309}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D6BA9701-5503-4474-BD8D-2E9A8A21F309}.Debug|Win32.Build.0 = Debug|Win32
+		{D6BA9701-5503-4474-BD8D-2E9A8A21F309}.Debug|x64.ActiveCfg = Debug|x64
+		{D6BA9701-5503-4474-BD8D-2E9A8A21F309}.Debug|x64.Build.0 = Debug|x64
+		{D6BA9701-5503-4474-BD8D-2E9A8A21F309}.Release|Win32.ActiveCfg = Release|Win32
+		{D6BA9701-5503-4474-BD8D-2E9A8A21F309}.Release|Win32.Build.0 = Release|Win32
+		{D6BA9701-5503-4474-BD8D-2E9A8A21F309}.Release|x64.ActiveCfg = Release|x64
+		{D6BA9701-5503-4474-BD8D-2E9A8A21F309}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -216,5 +226,6 @@ Global
 		{C19C0EFE-36AB-41E4-9089-D7B3D5A7B03C} = {0C01B2E2-DEA3-4603-8FDA-A4EC25405868}
 		{FB0E41CC-4A31-4BC0-9244-C65603D98EB1} = {0C01B2E2-DEA3-4603-8FDA-A4EC25405868}
 		{9FD59C9A-2CF7-4E8A-BE2B-4A17317323C9} = {E9EBAAD8-DDF1-42B5-8E49-037E59932C0B}
+		{D6BA9701-5503-4474-BD8D-2E9A8A21F309} = {AF896B69-EBA7-4204-A392-3BE0682F1615}
 	EndGlobalSection
 EndGlobal
