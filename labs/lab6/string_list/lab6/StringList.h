@@ -26,6 +26,7 @@ public:
 	public:
 		CIterator() = default;
 		std::string & operator*()const;
+		CIterator & operator++();
 	private:
 		Node *m_node = nullptr;
 	};

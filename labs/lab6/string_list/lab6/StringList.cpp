@@ -51,3 +51,9 @@ std::string & CStringList::CIterator::operator*() const
 {
 	return m_node->data;
 }
+
+CStringList::CIterator & CStringList::CIterator::operator++()
+{
+	m_node = m_node->next.get();
+	return *this;
+}

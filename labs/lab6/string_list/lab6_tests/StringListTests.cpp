@@ -39,4 +39,15 @@ BOOST_FIXTURE_TEST_SUITE(String_list, EmptyStringList)
 			BOOST_CHECK_EQUAL(addressof(*it), addressof(list.GetBackElement()));
 		}
 	BOOST_AUTO_TEST_SUITE_END()
+	BOOST_AUTO_TEST_SUITE(iterator)
+		BOOST_AUTO_TEST_CASE(can_be_increnenting)
+		{
+			list.Append("first");
+			list.Append("second");
+			auto iter = list.begin();
+			BOOST_CHECK_EQUAL(*iter, "first");
+			++iter;
+			BOOST_CHECK_EQUAL(*iter, "second");
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE_END()
