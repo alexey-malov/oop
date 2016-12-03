@@ -62,14 +62,20 @@ BOOST_FIXTURE_TEST_SUITE(TVSet, TVSetFixture)
 			BOOST_CHECK(tv.SelectChannel(1));
 			BOOST_CHECK_EQUAL(tv.GetChannel(), 1);
 
-			BOOST_CHECK(!tv.SelectChannel(0));
-			BOOST_CHECK_EQUAL(tv.GetChannel(), 1);
-
 			BOOST_CHECK(tv.SelectChannel(99));
 			BOOST_CHECK_EQUAL(tv.GetChannel(), 99);
 
+			// Выбираем канал между 1 и 99
+			BOOST_CHECK(tv.SelectChannel(42));
+			BOOST_CHECK_EQUAL(tv.GetChannel(), 42);
+
+			// При попытке выбрать канал за пределами [1; 99] 
+			// телевизор не должен менять свой канал
+			BOOST_CHECK(!tv.SelectChannel(0));
+			BOOST_CHECK_EQUAL(tv.GetChannel(), 42);
+
 			BOOST_CHECK(!tv.SelectChannel(100));
-			BOOST_CHECK_EQUAL(tv.GetChannel(), 99);
+			BOOST_CHECK_EQUAL(tv.GetChannel(), 42);
 		}	
 	BOOST_AUTO_TEST_SUITE_END()
 
