@@ -7,7 +7,7 @@
 
 using namespace std;
 
-template <class T, class Comp>
+template <typename T, typename Comp>
 void Sort(vector<T> & arr, Comp const& comp)
 {
 	size_t n = arr.size();
@@ -60,6 +60,31 @@ int main()
 
 	copy(numbers.begin(), numbers.end(), ostream_iterator<int>(cout, " "));
 
+	cout << endl;
+
+	struct Car
+	{
+		string model;
+		int price;
+	};
+
+	vector<Car> cars = {
+		{ "MP-40", 2'000'000'000 },
+		{ "Zaz-968", 30'000 },
+		{ "Zil-130", 130'000 },
+		{ "Gaz-69", 50'000 },
+	};
+
+	auto priceAsc = [](const Car & lhs, const Car & rhs) {
+		return lhs.price < rhs.price;
+	};
+
+	Sort(cars, priceAsc);
+	transform(cars.begin(), cars.end(), ostream_iterator<string>(cout, ", "),
+		[](const Car& car) { 
+			return car.model + " " + to_string(car.price); 
+		}
+	);
 	cout << endl;
 
 }
