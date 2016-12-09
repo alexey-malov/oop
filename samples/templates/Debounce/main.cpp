@@ -160,9 +160,7 @@ int main()
 			}
 		};
 
-		auto firstCallScheduler = DebounceFirst<function<void()>>(scheduler);
-
-		auto scheduledMousePosPrinter = [=](int x, int y) mutable {
+		auto scheduledLastMousePosPrinter = [=](int x, int y) mutable {
 			if (lastMousePosPrinter.IsEmpty())
 			{
 				scheduler([=]() mutable {
@@ -172,7 +170,7 @@ int main()
 			lastMousePosPrinter(x, y);
 		};
 
-		ScopedConnection con = signal.connect(scheduledMousePosPrinter);
+		ScopedConnection con = signal.connect(scheduledLastMousePosPrinter);
 		signal(1, 2);
 		signal(3, 4);
 		signal(5, 6);
