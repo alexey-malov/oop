@@ -108,6 +108,55 @@ auto DebounceFirst(const std::function<void()> & fn)
 	return Debouncer<false>(fn);
 }
 
+/*
+auto scheduledLastMousePosPrinter = [=](int x, int y) mutable {
+if (lastMousePosPrinter.IsEmpty())
+{
+scheduler([=]() mutable {
+lastMousePosPrinter.Dispatch();
+});
+}
+lastMousePosPrinter(x, y);
+};
+
+
+*/
+
+template <typename Debouncer>
+struct ScheduledDebouncer
+{
+	using Task = std::function<void()>;
+	using Scheduler = std::function<void(const Task&)>;
+	ScheduledDebouncer(const Debouncer &debouncer, const Scheduler& scheduler)
+		: m_scheduler(scheduler)
+		, m_debouncer(debouncer)
+	{
+	}
+
+	template <typename ...Args>
+	void operator()(Args && ...args)
+	{
+		bool needSchedule = m_debouncer.IsEmpty();
+		m_debouncer(std::forward<Args>(args)...);
+		if (needSchedule)
+		{
+			auto debouncer = m_debouncer;
+			m_scheduler([debouncer]() mutable{
+				debouncer.Dispatch();
+			});
+		}
+	}
+
+	Scheduler m_scheduler;
+	Debouncer m_debouncer;
+};
+
+template <typename Debouncer, typename Scheduler>
+auto ScheduledDebounce(const Debouncer & debouncer, Scheduler && scheduler)
+{
+	return ScheduledDebouncer<Debouncer>(debouncer, std::forward<Scheduler>(scheduler));
+}
+
 
 int main()
 {
@@ -160,6 +209,7 @@ int main()
 			}
 		};
 
+/*
 		auto scheduledLastMousePosPrinter = [=](int x, int y) mutable {
 			if (lastMousePosPrinter.IsEmpty())
 			{
@@ -170,6 +220,8 @@ int main()
 			lastMousePosPrinter(x, y);
 		};
 
+*/
+		auto scheduledLastMousePosPrinter = ScheduledDebounce(lastMousePosPrinter, scheduler);
 		ScopedConnection con = signal.connect(scheduledLastMousePosPrinter);
 		signal(1, 2);
 		signal(3, 4);
