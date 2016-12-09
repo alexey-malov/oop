@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Accumulate", "Accumulate\Ac
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "variadic_templates", "variadic_templates\variadic_templates.vcxproj", "{342CC91A-7F09-434C-B69C-452BC11D2A6B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Debounce", "Debounce\Debounce.vcxproj", "{43DA71CC-3EB2-46D5-BA6E-E917EDC37584}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -37,6 +39,14 @@ Global
 		{342CC91A-7F09-434C-B69C-452BC11D2A6B}.Release|Win32.Build.0 = Release|Win32
 		{342CC91A-7F09-434C-B69C-452BC11D2A6B}.Release|x64.ActiveCfg = Release|x64
 		{342CC91A-7F09-434C-B69C-452BC11D2A6B}.Release|x64.Build.0 = Release|x64
+		{43DA71CC-3EB2-46D5-BA6E-E917EDC37584}.Debug|Win32.ActiveCfg = Debug|Win32
+		{43DA71CC-3EB2-46D5-BA6E-E917EDC37584}.Debug|Win32.Build.0 = Debug|Win32
+		{43DA71CC-3EB2-46D5-BA6E-E917EDC37584}.Debug|x64.ActiveCfg = Debug|x64
+		{43DA71CC-3EB2-46D5-BA6E-E917EDC37584}.Debug|x64.Build.0 = Debug|x64
+		{43DA71CC-3EB2-46D5-BA6E-E917EDC37584}.Release|Win32.ActiveCfg = Release|Win32
+		{43DA71CC-3EB2-46D5-BA6E-E917EDC37584}.Release|Win32.Build.0 = Release|Win32
+		{43DA71CC-3EB2-46D5-BA6E-E917EDC37584}.Release|x64.ActiveCfg = Release|x64
+		{43DA71CC-3EB2-46D5-BA6E-E917EDC37584}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
