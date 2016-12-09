@@ -7,11 +7,13 @@
 #include <iostream>
 #include <string>
 #include <boost/optional.hpp>
+#include <deque>
 
 namespace detail {
 	template <class F, class Tuple, std::size_t... I>
 	constexpr decltype(auto) apply_impl(F&& f, Tuple&& t, std::index_sequence<I...>)
 	{
+		(void)&t;
 		return std::invoke(std::forward<F>(f), std::get<I>(std::forward<Tuple>(t))...);
 		// Note: std::invoke is a C++17 feature
 	}
@@ -37,9 +39,15 @@ struct Debouncer
 	{
 	}
 
+	template <typename ...Args>
 	void operator()(Args && ...args)
 	{
 		(*m_impl)(std::forward<Args>(args)...);
+	}
+
+	bool IsEmpty()const
+	{
+		return m_impl->IsEmpty();
 	}
 
 	void Dispatch()
@@ -54,6 +62,7 @@ private:
 			: m_fn(fn)
 		{
 		}
+		template <typename ...Args>
 		void operator()(Args && ...args)
 		{
 #pragma warning(push)
@@ -63,6 +72,10 @@ private:
 				m_args.emplace(std::forward<Args>(args)...);
 			}
 #pragma warning(pop)
+		}
+		bool IsEmpty()const
+		{
+			return !m_args.is_initialized();
 		}
 		void Dispatch()
 		{
@@ -90,10 +103,113 @@ auto DebounceFirst(const std::function<void(Args...)> & fn)
 	return Debouncer<false, Args...>(fn);
 }
 
+auto DebounceFirst(const std::function<void()> & fn)
+{
+	return Debouncer<false>(fn);
+}
+
+
 int main()
 {
 	using namespace std;
-	using Signal = boost::signals2::signal<void(int, string)>;
+	using MouseMoveSignal = boost::signals2::signal<void(int x, int y)>;
+	using ScopedConnection = boost::signals2::scoped_connection;
+
+	MouseMoveSignal signal;
+
+	auto mousePosPrinter = [](int x, int y) {
+		cout << "x: " << x << ", y: " << y << endl;
+	};
+
+	{
+		ScopedConnection con = signal.connect(mousePosPrinter);
+		signal(1, 2);
+		signal(3, 4);
+		signal(5, 6);
+		cout << "---------" << endl;
+	}
+
+	auto lastMousePosPrinter = DebounceLast<int, int>(mousePosPrinter);
+	{
+		ScopedConnection con = signal.connect(lastMousePosPrinter);
+		signal(1, 2);
+		signal(3, 4);
+		signal(5, 6);
+		lastMousePosPrinter.Dispatch();
+		signal(7, 8);
+		signal(9, 10);
+		signal(11, 12);
+		lastMousePosPrinter.Dispatch();
+
+		cout << "---------" << endl;
+	}
+
+	{
+		deque<function<void()>> queuedCalls;
+		auto scheduler = [&](auto && fn)
+		{
+			queuedCalls.push_back(fn);
+		};
+
+		auto processQueuedCalls = [&]()
+		{
+			while (!queuedCalls.empty())
+			{
+				queuedCalls.front()();
+				queuedCalls.pop_front();
+			}
+		};
+
+		auto firstCallScheduler = DebounceFirst<function<void()>>(scheduler);
+
+		auto scheduledMousePosPrinter = [=](int x, int y) mutable {
+			if (lastMousePosPrinter.IsEmpty())
+			{
+				scheduler([=]() mutable {
+					lastMousePosPrinter.Dispatch();
+				});
+			}
+			lastMousePosPrinter(x, y);
+		};
+
+		ScopedConnection con = signal.connect(scheduledMousePosPrinter);
+		signal(1, 2);
+		signal(3, 4);
+		signal(5, 6);
+
+		processQueuedCalls(); // 5, 6
+		signal(7, 8);
+		signal(9, 10);
+		signal(11, 12);
+		processQueuedCalls(); // 11, 12
+
+
+		
+
+		//auto firstCallScheduler = DebounceFirst<function<void()>>(scheduler);
+
+
+
+/*
+		auto firstCallScheduler = DebounceFirst<function<void()>>(scheduler);
+		ScopedConnection con = signal.connect(lastMousePosPrinter);
+
+		auto scheduledMousePosPrinter = [&](int / *x* /, int / *y* /) {
+			firstCallScheduler.Dispatch()
+		};
+
+		signal(1, 2);
+		signal(3, 4);
+		signal(5, 6);
+		processQueuedCalls();
+		signal(7, 8);
+		signal(9, 10);
+		signal(11, 12);
+		processQueuedCalls();
+*/
+	}
+
+	/*
 
 	Signal signal;
 	auto slot = [](int n, const string & s) {
@@ -109,12 +225,24 @@ int main()
 	signal(1, "hello");
 	signal(2, "world");
 	signal(3, "test");
-	
-	debounceFirstSlot.Dispatch(); // will print 1, hello
-	debounceLastSlot.Dispatch(); // will print 3, test
 
-	debounceFirstSlot.Dispatch(); // will not print
-	debounceLastSlot.Dispatch(); // will not print
+	auto dispatcher = [&]()
+	{
+		debounceFirstSlot.Dispatch();
+		debounceLastSlot.Dispatch();
+	};
+	auto firstTimeDispatcher = DebounceFirst(dispatcher);
+
+	firstTimeDispatcher();
+	firstTimeDispatcher();
+	firstTimeDispatcher.Dispatch();
+	signal(4, "hello");
+	signal(5, "world");
+	signal(6, "test");
+
+	firstTimeDispatcher();
+	firstTimeDispatcher.Dispatch();
+*/
 
 	return 0;
 }
