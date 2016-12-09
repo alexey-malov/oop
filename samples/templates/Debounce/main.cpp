@@ -182,67 +182,6 @@ int main()
 		signal(9, 10);
 		signal(11, 12);
 		processQueuedCalls(); // 11, 12
-
-
-		
-
-		//auto firstCallScheduler = DebounceFirst<function<void()>>(scheduler);
-
-
-
-/*
-		auto firstCallScheduler = DebounceFirst<function<void()>>(scheduler);
-		ScopedConnection con = signal.connect(lastMousePosPrinter);
-
-		auto scheduledMousePosPrinter = [&](int / *x* /, int / *y* /) {
-			firstCallScheduler.Dispatch()
-		};
-
-		signal(1, 2);
-		signal(3, 4);
-		signal(5, 6);
-		processQueuedCalls();
-		signal(7, 8);
-		signal(9, 10);
-		signal(11, 12);
-		processQueuedCalls();
-*/
 	}
-
-	/*
-
-	Signal signal;
-	auto slot = [](int n, const string & s) {
-		cout << n << ", " << s << endl;
-	};
-
-	auto debounceFirstSlot = DebounceFirst<int, string>(slot);
-	auto debounceLastSlot = DebounceLast<int, string>(slot);
-
-	signal.connect(debounceLastSlot);
-	signal.connect(debounceFirstSlot);
-
-	signal(1, "hello");
-	signal(2, "world");
-	signal(3, "test");
-
-	auto dispatcher = [&]()
-	{
-		debounceFirstSlot.Dispatch();
-		debounceLastSlot.Dispatch();
-	};
-	auto firstTimeDispatcher = DebounceFirst(dispatcher);
-
-	firstTimeDispatcher();
-	firstTimeDispatcher();
-	firstTimeDispatcher.Dispatch();
-	signal(4, "hello");
-	signal(5, "world");
-	signal(6, "test");
-
-	firstTimeDispatcher();
-	firstTimeDispatcher.Dispatch();
-*/
-
 	return 0;
 }
