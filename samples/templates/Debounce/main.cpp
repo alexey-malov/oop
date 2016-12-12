@@ -198,18 +198,6 @@ int main()
 			}
 		};
 
-/*
-		auto scheduledLastMousePosPrinter = [=](int x, int y) mutable {
-			if (lastMousePosPrinter.IsEmpty())
-			{
-				scheduler([=]() mutable {
-					lastMousePosPrinter.Dispatch();
-				});
-			}
-			lastMousePosPrinter(x, y);
-		};
-
-*/
 		auto scheduledLastMousePosPrinter = ScheduledDebounce(lastMousePosPrinter, scheduler);
 		ScopedConnection con = signal.connect(scheduledLastMousePosPrinter);
 		signal(1, 2);
