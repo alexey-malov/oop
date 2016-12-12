@@ -108,20 +108,6 @@ auto DebounceFirst(const std::function<void()> & fn)
 	return Debouncer<false>(fn);
 }
 
-/*
-auto scheduledLastMousePosPrinter = [=](int x, int y) mutable {
-if (lastMousePosPrinter.IsEmpty())
-{
-scheduler([=]() mutable {
-lastMousePosPrinter.Dispatch();
-});
-}
-lastMousePosPrinter(x, y);
-};
-
-
-*/
-
 template <typename Debouncer>
 struct ScheduledDebouncer
 {
@@ -146,7 +132,7 @@ struct ScheduledDebouncer
 			});
 		}
 	}
-
+private:
 	Scheduler m_scheduler;
 	Debouncer m_debouncer;
 };
