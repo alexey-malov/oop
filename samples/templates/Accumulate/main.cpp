@@ -31,7 +31,7 @@ string AccumulateVector(vector<string> const& v)
 template <typename T>
 T AccumulateVector(vector<T> const& v)
 {
-	T sum = T();
+	T sum {};
 	for (auto & val : v)
 	{
 		sum += val;
@@ -80,7 +80,7 @@ int main()
 	rs = Reduce(vs, plus<string>(), string());
 	cout << rs << endl;
 
-	auto SelectMin = [](const string& l, const string & r){
+	auto SelectMin = [](const auto & l, const auto & r){
 		return l < r ? l : r;
 	};
 
