@@ -34,6 +34,7 @@ void CaptureByValueEmulation()
 		{
 			cout << " x = " << x << endl;
 		}
+	private:
 		int x;
 	};
 
@@ -71,6 +72,7 @@ void CaptureByReferenceEmulation()
 		{
 			cout << " x = " << x << endl;
 		}
+	private:
 		int & x;
 	};
 
@@ -86,11 +88,11 @@ void CaptureByValueInMutableLambda()
 	int x = 42;
 	auto fn = [=] () mutable {
 		// x захватывается по значению (которое можно менять внутри лямбды)
-		cout << " x = " << x << endl;
 		x += 5;
+		cout << " x = " << x << endl;
 	};
 	fn();
-	x = 55; // внутрия лямбды значение не изменится
+	x = 55; // внутри лямбды значение не изменится
 	fn();
 }
 
@@ -136,7 +138,7 @@ void WrongCaptureByReference()
 		lambda();
 	}
 	// если раскомментировать следующую строчку, то будет неопр. поведение
-	// fn(); 
+	//fn(); 
 }
 
 void CaptureBySharedValue()
@@ -214,8 +216,31 @@ void BorrowingLambda()
 	assert(!oneMoreMessage);
 }
 
+void MutableLambdaExample()
+{
+	unsigned seed = 42;
+	auto rnd = [seed]() mutable {
+		seed = seed * 43 + 47;
+		return seed % 10;
+	};
+	for (int i = 0; i < 10; ++i)
+	{
+		cout << rnd() << " ";
+	}
+	cout << endl;
+}
+
+void RecursiveLambda()
+{
+	function<unsigned(unsigned)> factorial = [&](unsigned x) {
+		return (x == 0) ? 1 : x * factorial(x - 1);
+	};
+	cout << "4! = " << factorial(4) << endl;
+}
+
 int main()
 {
+	MutableLambdaExample();
 	CaptureByValue();
 	CaptureByValueEmulation();
 	CaptureByReference();
@@ -226,5 +251,6 @@ int main()
 	CaptureBySharedValue();
 	CaptureWithMoving();
 	BorrowingLambda();
+	RecursiveLambda();
 	return 0;
 }
