@@ -32,7 +32,7 @@ public:
 	{
 		if (m_end == m_endOfCapacity) // no free space
 		{
-			size_t newCapacity = std::max(1u, GetCapacity() * 2);
+			size_t newCapacity = std::max(size_t(1), GetCapacity() * 2);
 
 			auto newBegin = RawAlloc(newCapacity);
 			T *newEnd = newBegin;
