@@ -1,5 +1,5 @@
 rem @echo off
-SET program="%1"
+SET program="%~1"
 if %program% == "" goto err
 
 %program% > out.txt
