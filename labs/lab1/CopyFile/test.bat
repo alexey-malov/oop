@@ -12,7 +12,7 @@ if ERRORLEVEL 1 goto err
 fc.exe %TEMP%\one-line.txt one-line.txt
 if ERRORLEVEL 1 goto err
 
-rem провер€ем копирование файла из одной строки
+rem провер€ем копирование файла из нескольких строк
 %PROGRAM% multiline.txt %TEMP%\multiline.txt
 if ERRORLEVEL 1 goto err
 fc.exe %TEMP%\multiline.txt multiline.txt
