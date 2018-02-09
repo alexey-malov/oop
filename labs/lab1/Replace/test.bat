@@ -11,7 +11,13 @@ if NOT ERRORLEVEL 1 goto err
 rem При запуске с правильными параметрами ожидается нулевой код возврата
 %PROGRAM% test-data\fox.txt "%TEMP%\fox.txt" bird cat
 if ERRORLEVEL 1 goto err
-fc.exe "%TEMP%\fox.txt" test-data\fox.txt > nul
+fc.exe "%TEMP%\fox.txt" test-data\fox.txt >nul
+if ERRORLEVEL 1 goto err
+
+rem При запуске с правильными параметрами ожидается нулевой код возврата
+%PROGRAM% test-data\fox.txt "%TEMP%\fox.txt" dog cat
+if ERRORLEVEL 1 goto err
+fc.exe "%TEMP%\fox.txt" test-data\fox-replace-dog-with-cat.txt >nul
 if ERRORLEVEL 1 goto err
 
 echo OK
