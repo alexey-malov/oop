@@ -35,4 +35,7 @@
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="test-data\fox.txt" />
+  </ItemGroup>
 </Project>

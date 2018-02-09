@@ -4,8 +4,14 @@ rem %~1 - значение первого аргумента командной строки bat-файла с удалением обра
 rem ѕеременна€ PROGRAM будет хранить первый аргумент командной строки заключЄнный в кавычки
 set PROGRAM="%~1"
 
+rem ѕри запуске без параметров ожидаетс€ ненулевой код возврата
 %PROGRAM% > nul
 if NOT ERRORLEVEL 1 goto err
+
+rem ѕри запуске с правильными параметрами ожидаетс€ нулевой код возврата
+%PROGRAM% test-data\fox.txt "%TEMP%\fox.txt" dog cat
+if ERRORLEVEL 1 goto err
+
 
 echo OK
 exit 0
