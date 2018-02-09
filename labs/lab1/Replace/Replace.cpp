@@ -3,6 +3,17 @@
 
 #include "stdafx.h"
 
+void CopyFileWithReplace(std::istream& input, std::ostream& output,
+	const std::string& searchString, const std::string& replacementString)
+{
+	std::string line;
+
+	while (std::getline(input, line))
+	{
+		output << line << "\n";
+	}
+}
+
 int main(int argc, char* argv[])
 {
 	if (argc != 5)
@@ -21,12 +32,7 @@ int main(int argc, char* argv[])
 	std::string search = argv[3];
 	std::string replace = argv[4];
 
-	std::string line;
-
-	while (std::getline(inputFile, line))
-	{
-		outputFile << line << "\n";
-	}
+	CopyFileWithReplace(inputFile, outputFile, search, replace);
 	outputFile.flush();
 
 	return 0;
