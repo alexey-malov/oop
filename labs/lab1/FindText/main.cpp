@@ -1,19 +1,17 @@
-﻿#include <string>
-#include <sstream>
-#include <iostream>
+﻿#include <cassert>
 #include <functional> // Необходим для std::function
-#include <cassert>
+#include <iostream>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
-
 using FindStringCallback = function<void(int lineIndex, const string& line, size_t foundPos)>;
-// using позволяет сделать то же, что и typedef, но даже больше.
-//typedef function<void(int lineIndex, const string& line, size_t foundPos)> FindStringCallback;
 
-bool FindStingInStream(istream & haystack, 
-	const string& needle, 
-	const FindStringCallback & callback = FindStringCallback())
+bool FindStingInStream(
+	istream& haystack,
+	const string& needle,
+	const FindStringCallback& callback = FindStringCallback())
 {
 	string line;
 	bool found = false;
@@ -23,7 +21,8 @@ bool FindStingInStream(istream & haystack,
 		if (pos != string::npos)
 		{
 			found = true;
-			// Передаем в функцию обратного вызова информацию о первом найденном вхождении подстроки
+			// Передаем в функцию обратного вызова информацию о 
+			// первом найденном вхождении подстроки
 			if (callback)
 			{
 				callback(lineIndex, line, pos);
@@ -31,6 +30,11 @@ bool FindStingInStream(istream & haystack,
 		}
 	}
 	return found;
+}
+
+void PrintFoundLineIndex(int lineIndex, const string& /*line*/, size_t /*foundPos*/)
+{
+	cout << lineIndex << endl;
 }
 
 int main()
@@ -43,15 +47,13 @@ Let's find all needles in
 this haystack.
 )";
 	istringstream strm(hayStack);
-	if (!FindStingInStream(strm, "needle", 
-		[](int lineIndex, const string& /*line*/, size_t /*foundPos*/) {
-			cout << lineIndex << endl;
-	}))
+
+	if (!FindStingInStream(strm, "needle", PrintFoundLineIndex))
 	{
 		cout << "No string found" << endl;
 	}
 
-	strm.clear();	// сбросили флаг окончания потока
+	strm.clear(); // сбросили флаг окончания потока
 	strm.seekg(0, ios_base::beg); // перемотали в начало
 
 	// можно не передавать callback и довольствоваться лишь информацией о наличии/отсутствии вхождений
