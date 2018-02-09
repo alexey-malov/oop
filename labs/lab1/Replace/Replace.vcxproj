@@ -175,6 +175,7 @@
     <None Include="test.bat" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="test-data\fox-replace-dog-with-cat.txt" />
     <Text Include="test-data\fox.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

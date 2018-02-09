@@ -37,5 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="test-data\fox.txt" />
+    <Text Include="test-data\fox-replace-dog-with-cat.txt" />
   </ItemGroup>
 </Project>
