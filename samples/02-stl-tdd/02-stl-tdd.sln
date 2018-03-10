@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test-Driven-Development", "Test-Driven-Development\Test-Driven-Development.vcxproj", "{F95960B9-B577-4B92-B80A-831239D73F0F}"
 EndProject
@@ -62,6 +62,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boost-optional", "boost-optional\boost-optional.vcxproj", "{E14CCB5C-14E1-4935-8136-A0CC672C7FE3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tuples", "tuples\tuples.vcxproj", "{330A70D9-912A-4C5C-B64A-C471A3E9EA39}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringView", "StringView\StringView.vcxproj", "{8B1D9697-880D-4F06-9AAE-7CF5B53D5702}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -295,6 +297,14 @@ Global
 		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Release|Win32.Build.0 = Release|Win32
 		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Release|x64.ActiveCfg = Release|x64
 		{330A70D9-912A-4C5C-B64A-C471A3E9EA39}.Release|x64.Build.0 = Release|x64
+		{8B1D9697-880D-4F06-9AAE-7CF5B53D5702}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8B1D9697-880D-4F06-9AAE-7CF5B53D5702}.Debug|Win32.Build.0 = Debug|Win32
+		{8B1D9697-880D-4F06-9AAE-7CF5B53D5702}.Debug|x64.ActiveCfg = Debug|x64
+		{8B1D9697-880D-4F06-9AAE-7CF5B53D5702}.Debug|x64.Build.0 = Debug|x64
+		{8B1D9697-880D-4F06-9AAE-7CF5B53D5702}.Release|Win32.ActiveCfg = Release|Win32
+		{8B1D9697-880D-4F06-9AAE-7CF5B53D5702}.Release|Win32.Build.0 = Release|Win32
+		{8B1D9697-880D-4F06-9AAE-7CF5B53D5702}.Release|x64.ActiveCfg = Release|x64
+		{8B1D9697-880D-4F06-9AAE-7CF5B53D5702}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -321,5 +331,9 @@ Global
 		{01DFBDB7-FC9E-4679-8E06-4FCFEC6B8186} = {634151E7-7AE5-47E0-9461-9ED293F6D17F}
 		{13EFEC75-EF49-4779-90AC-EF72BBB9004F} = {B230C5B0-A586-4186-9E40-EBEFF45EF94C}
 		{794E58D5-67C9-4722-9074-AFA63A4BF6F9} = {B230C5B0-A586-4186-9E40-EBEFF45EF94C}
+		{8B1D9697-880D-4F06-9AAE-7CF5B53D5702} = {B230C5B0-A586-4186-9E40-EBEFF45EF94C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9E7EFC9-4AE7-4DAC-975B-02C1966B2C60}
 	EndGlobalSection
 EndGlobal
