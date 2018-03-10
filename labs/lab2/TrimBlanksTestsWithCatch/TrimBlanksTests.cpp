@@ -1,6 +1,13 @@
 #include "stdafx.h"
+#include "../task2/TrimBlanks.h"
 
-TEST_CASE("Just test")
+TEST_CASE("TrimBlanks test")
 {
-	REQUIRE(2 + 2 == 4);
+	CHECK(TrimBlanks("") == "");
+	CHECK(TrimBlanks("Hello") == "Hello");
+	CHECK(TrimBlanks("   Hello") == "Hello");
+	CHECK(TrimBlanks("Hello   ") == "Hello");
+	CHECK(TrimBlanks("    Hello   ") == "Hello");
+	CHECK(TrimBlanks("    ") == "");
+	CHECK(TrimBlanks("A") == "A");
 }
