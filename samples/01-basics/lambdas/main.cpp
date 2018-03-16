@@ -109,8 +109,8 @@ void CaptureByValueInMutableLambdaEmulation()
 
 		void operator()() // в mutable-lambda оператор () не является константым
 		{
-			cout << " x = " << x << endl;
 			x += 5;
+			cout << " x = " << x << endl;
 		}
 		int x;
 	};
