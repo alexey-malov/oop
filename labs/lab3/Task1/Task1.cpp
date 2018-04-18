@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void main()
+int main()
 {
 	CTVSet tv;
 	CRemoteControl remoteControl(tv, cin, cout);
@@ -21,5 +21,6 @@ void main()
 			cout << "Unknown command!" << endl;
 		}
 	}
+	return 0;
 }
 
