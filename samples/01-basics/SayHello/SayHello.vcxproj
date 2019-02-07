@@ -97,7 +97,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>test.bat "$(TargetPath)"</Command>
+      <Command>tests\test.bat "$(TargetPath)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Running tests</Message>
@@ -118,7 +118,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>test.bat "$(TargetPath)"</Command>
+      <Command>tests\test.bat "$(TargetPath)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Running tests</Message>
@@ -143,7 +143,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>test.bat "$(TargetPath)"</Command>
+      <Command>tests\test.bat "$(TargetPath)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Running tests</Message>
@@ -168,7 +168,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>test.bat "$(TargetPath)"</Command>
+      <Command>tests\test.bat "$(TargetPath)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Running tests</Message>
@@ -187,15 +187,15 @@
     <ClCompile Include="SayHello.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="test.bat" />
+    <None Include="tests\test.bat" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Boris-out.txt" />
-    <Text Include="Boris.txt" />
-    <Text Include="Empty-out.txt" />
-    <Text Include="Empty.txt" />
-    <Text Include="HarryPotter-out.txt" />
-    <Text Include="HarryPotter.txt" />
+    <Text Include="tests\Boris-out.txt" />
+    <Text Include="tests\Boris.txt" />
+    <Text Include="tests\Empty-out.txt" />
+    <Text Include="test\Empty.txt" />
+    <Text Include="tests\HarryPotter-out.txt" />
+    <Text Include="tests\HarryPotter.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

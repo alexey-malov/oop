@@ -31,28 +31,28 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="test.bat">
-      <Filter>Source Files</Filter>
-    </None>
+    <Text Include="tests\Boris.txt">
+      <Filter>test_data</Filter>
+    </Text>
+    <Text Include="tests\Boris-out.txt">
+      <Filter>test_data</Filter>
+    </Text>
+    <Text Include="test\Empty.txt">
+      <Filter>test_data</Filter>
+    </Text>
+    <Text Include="tests\Empty-out.txt">
+      <Filter>test_data</Filter>
+    </Text>
+    <Text Include="tests\HarryPotter.txt">
+      <Filter>test_data</Filter>
+    </Text>
+    <Text Include="tests\HarryPotter-out.txt">
+      <Filter>test_data</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Boris.txt">
-      <Filter>test_data</Filter>
-    </Text>
-    <Text Include="Boris-out.txt">
-      <Filter>test_data</Filter>
-    </Text>
-    <Text Include="HarryPotter.txt">
-      <Filter>test_data</Filter>
-    </Text>
-    <Text Include="HarryPotter-out.txt">
-      <Filter>test_data</Filter>
-    </Text>
-    <Text Include="Empty.txt">
-      <Filter>test_data</Filter>
-    </Text>
-    <Text Include="Empty-out.txt">
-      <Filter>test_data</Filter>
-    </Text>
+    <None Include="tests\test.bat">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
