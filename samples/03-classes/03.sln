@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "class_internals", "class_internals\class_internals.vcxproj", "{BA748054-C05F-411C-B255-1F9932A3DD8E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RvalueLvalueMethods", "RvalueLvalueMethods\RvalueLvalueMethods.vcxproj", "{CA171D1C-1414-4709-8F16-7AA83BCB9AB4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "class_basics", "class_basics\class_basics.vcxproj", "{81B2949A-B77D-49B5-BA7D-6CFB45515520}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,8 +31,19 @@ Global
 		{CA171D1C-1414-4709-8F16-7AA83BCB9AB4}.Release|Win32.Build.0 = Release|Win32
 		{CA171D1C-1414-4709-8F16-7AA83BCB9AB4}.Release|x64.ActiveCfg = Release|x64
 		{CA171D1C-1414-4709-8F16-7AA83BCB9AB4}.Release|x64.Build.0 = Release|x64
+		{81B2949A-B77D-49B5-BA7D-6CFB45515520}.Debug|Win32.ActiveCfg = Debug|Win32
+		{81B2949A-B77D-49B5-BA7D-6CFB45515520}.Debug|Win32.Build.0 = Debug|Win32
+		{81B2949A-B77D-49B5-BA7D-6CFB45515520}.Debug|x64.ActiveCfg = Debug|x64
+		{81B2949A-B77D-49B5-BA7D-6CFB45515520}.Debug|x64.Build.0 = Debug|x64
+		{81B2949A-B77D-49B5-BA7D-6CFB45515520}.Release|Win32.ActiveCfg = Release|Win32
+		{81B2949A-B77D-49B5-BA7D-6CFB45515520}.Release|Win32.Build.0 = Release|Win32
+		{81B2949A-B77D-49B5-BA7D-6CFB45515520}.Release|x64.ActiveCfg = Release|x64
+		{81B2949A-B77D-49B5-BA7D-6CFB45515520}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDAB6F30-4193-4C57-A806-9EEE99097F9D}
 	EndGlobalSection
 EndGlobal
