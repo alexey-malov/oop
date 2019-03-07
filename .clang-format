@@ -52,7 +52,7 @@ ExperimentalAutoDetectBinPacking: false
 # FixNamespaceComments: false
 ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]
 IncludeCategories: 
-  - Regex:           '^"(stdafx|PrecompiledHeader)'
+  - Regex:           '^"(stdafx|pch|PrecompiledHeader)'
     Priority:        -2
   - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
     Priority:        4
