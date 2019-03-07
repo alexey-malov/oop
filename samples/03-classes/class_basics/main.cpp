@@ -1,5 +1,7 @@
+#define _USE_MATH_DEFINES
 #include <math.h>
 #include <memory>
+#include <iostream>
 
 enum class MakeOfCar
 {
