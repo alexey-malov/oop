@@ -17,7 +17,12 @@ private:
 	bool TurnOff(std::istream & args);
 	bool Info(std::istream & args);
 private:
-	typedef std::map<std::string, std::function<bool(std::istream & args)>> ActionMap;
+	// функция-обработчик команды пользователя.
+	// Возвращает true, если команда распознана и false, если были ошибки
+	using Handler = std::function<bool(std::istream& args)>;
+
+	// Отображает название команды на её обработчик
+	using ActionMap = std::map<std::string, Handler>;
 
 	CTVSet & m_tv;
 	std::istream & m_input;
