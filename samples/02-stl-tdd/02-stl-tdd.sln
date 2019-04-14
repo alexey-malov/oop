@@ -67,6 +67,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringView", "StringView\St
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NeverWriteUsingNamespaceInHeaders", "NeverWriteUsingNamespaceInHeaders\NeverWriteUsingNamespaceInHeaders.vcxproj", "{E5CFB575-C939-4B7A-8922-F76E66DA39EF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StdOptional", "StdOptional\StdOptional.vcxproj", "{0A0C979A-877E-4D2D-BCDF-0C701B51E412}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -315,6 +317,14 @@ Global
 		{E5CFB575-C939-4B7A-8922-F76E66DA39EF}.Release|Win32.Build.0 = Release|Win32
 		{E5CFB575-C939-4B7A-8922-F76E66DA39EF}.Release|x64.ActiveCfg = Release|x64
 		{E5CFB575-C939-4B7A-8922-F76E66DA39EF}.Release|x64.Build.0 = Release|x64
+		{0A0C979A-877E-4D2D-BCDF-0C701B51E412}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0A0C979A-877E-4D2D-BCDF-0C701B51E412}.Debug|Win32.Build.0 = Debug|Win32
+		{0A0C979A-877E-4D2D-BCDF-0C701B51E412}.Debug|x64.ActiveCfg = Debug|x64
+		{0A0C979A-877E-4D2D-BCDF-0C701B51E412}.Debug|x64.Build.0 = Debug|x64
+		{0A0C979A-877E-4D2D-BCDF-0C701B51E412}.Release|Win32.ActiveCfg = Release|Win32
+		{0A0C979A-877E-4D2D-BCDF-0C701B51E412}.Release|Win32.Build.0 = Release|Win32
+		{0A0C979A-877E-4D2D-BCDF-0C701B51E412}.Release|x64.ActiveCfg = Release|x64
+		{0A0C979A-877E-4D2D-BCDF-0C701B51E412}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
