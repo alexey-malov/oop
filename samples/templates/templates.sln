@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BubbleSort", "BubbleSort\BubbleSort.vcxproj", "{D586D842-89EF-4A2D-8666-846BFC287B6D}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Debounce", "Debounce\Debounce.vcxproj", "{43DA71CC-3EB2-46D5-BA6E-E917EDC37584}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PascalTriangle", "PascalTriangle\PascalTriangle.vcxproj", "{59565D03-4C1F-4190-BBE1-ED5604DED1C6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "template_operator", "template_operator\template_operator.vcxproj", "{01BDBB84-98F7-44D9-B84D-683F01F9B324}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,8 +59,19 @@ Global
 		{59565D03-4C1F-4190-BBE1-ED5604DED1C6}.Release|Win32.Build.0 = Release|Win32
 		{59565D03-4C1F-4190-BBE1-ED5604DED1C6}.Release|x64.ActiveCfg = Release|x64
 		{59565D03-4C1F-4190-BBE1-ED5604DED1C6}.Release|x64.Build.0 = Release|x64
+		{01BDBB84-98F7-44D9-B84D-683F01F9B324}.Debug|Win32.ActiveCfg = Debug|Win32
+		{01BDBB84-98F7-44D9-B84D-683F01F9B324}.Debug|Win32.Build.0 = Debug|Win32
+		{01BDBB84-98F7-44D9-B84D-683F01F9B324}.Debug|x64.ActiveCfg = Debug|x64
+		{01BDBB84-98F7-44D9-B84D-683F01F9B324}.Debug|x64.Build.0 = Debug|x64
+		{01BDBB84-98F7-44D9-B84D-683F01F9B324}.Release|Win32.ActiveCfg = Release|Win32
+		{01BDBB84-98F7-44D9-B84D-683F01F9B324}.Release|Win32.Build.0 = Release|Win32
+		{01BDBB84-98F7-44D9-B84D-683F01F9B324}.Release|x64.ActiveCfg = Release|x64
+		{01BDBB84-98F7-44D9-B84D-683F01F9B324}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {527FFC6B-64BE-44DB-8F71-180FF371792F}
 	EndGlobalSection
 EndGlobal
