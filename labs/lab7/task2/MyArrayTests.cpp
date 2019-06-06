@@ -5,8 +5,10 @@ using namespace std;
 
 struct ArrayItem
 {
-	ArrayItem(int value = 0) : value(value)
-	{}
+	ArrayItem(int value = 0)
+		: value(value)
+	{
+	}
 	int value;
 };
 
@@ -68,4 +70,35 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 			BOOST_CHECK_EQUAL(copy.GetCapacity(), arr.GetSize());
 		}
 	BOOST_AUTO_TEST_SUITE_END()
+
+	BOOST_AUTO_TEST_CASE(iterator_retrieving)
+	{
+		CMyArray<int> a;
+		a.Append(1);
+
+		{
+			auto it = a.begin();
+			BOOST_CHECK_EQUAL(&*it, &a.GetBack());
+
+			auto cit = a.cbegin();
+
+			BOOST_CHECK_EQUAL(&*cit, &a.GetBack());
+
+			cit = it;
+			BOOST_CHECK_EQUAL(&*cit, &a.GetBack());
+		}
+
+		a.Append(2);
+		a.Append(3);
+
+		{
+			auto it = a.begin();
+			it += 2;
+
+			BOOST_CHECK_EQUAL(&*it, &a.GetBack());
+
+			BOOST_CHECK_EQUAL(&*(a.begin() + 2), &a.GetBack());
+			BOOST_CHECK_EQUAL(&*(2 + a.begin()), &a.GetBack());
+		}
+	}
 BOOST_AUTO_TEST_SUITE_END()
