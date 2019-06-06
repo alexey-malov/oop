@@ -6,40 +6,47 @@
 template <typename T>
 class CMyArray
 {
-	template <typename T, typename OutputT, typename IterT>
+	template <typename T, bool IsConst>
 	class IteratorBase
 	{
+		friend class IteratorBase<T, true>;
 	public:
-		using reference = OutputT&;
-		using pointer = OutputT*;
+		using MyType = IteratorBase<T, IsConst>;
+		using value_type = std::conditional_t<IsConst, const T, T>;
+		using reference = value_type&;
+		using pointer = value_type*;
 		using difference_type = ptrdiff_t;
-		using value_type = OutputT;
 		using iterator_category = std::random_access_iterator_tag;
 
-		OutputT& operator*() const
+		IteratorBase() = default;
+		IteratorBase(const IteratorBase<T, false>& other)
+			: m_item(other.m_item)
+		{
+		}
+
+		reference& operator*() const
 		{
 			return *m_item;
 		}
 
-		IterT& operator+=(difference_type offset)
+		MyType& operator+=(difference_type offset)
 		{
 			m_item += offset;
-			return static_cast<IterT&>(*this);
+			return *this;
 		}
 
-		IterT operator+(difference_type offset) const
+		MyType operator+(difference_type offset) const
 		{
-			IterT self(m_item);
+			MyType self(m_item);
 			return self += offset;
 		}
 
-		friend IterT operator+(difference_type offset, const IterT& it)
+		friend MyType operator+(difference_type offset, const MyType& it)
 		{
 			return it + offset;
 		}
 
-	protected:
-		IteratorBase() = default;
+	public:
 		IteratorBase(T* item)
 			: m_item(item)
 		{
@@ -131,40 +138,8 @@ public:
 		DeleteItems(m_begin, m_end);
 	}
 
-	class Iterator : public IteratorBase<T, T, Iterator>
-	{
-		friend class CMyArray<T>;
-
-	public:
-		Iterator() = default;
-
-	private:
-		Iterator(T* pos)
-			: IteratorBase(pos)
-		{
-		}
-	};
-
-	class ConstIterator : public IteratorBase<T, const T, ConstIterator>
-	{
-		friend class CMyArray<T>;
-
-	public:
-		ConstIterator() = default;
-		ConstIterator(const Iterator other)
-			: IteratorBase(other.m_item)
-		{
-		}
-
-	private:
-		ConstIterator(T* pos)
-			: IteratorBase(pos)
-		{
-		}
-	};
-
-	using iterator = Iterator;
-	using const_iterator = ConstIterator;
+	using iterator = IteratorBase<T, false>;
+	using const_iterator = IteratorBase<T, true>;
 
 	iterator begin()
 	{
