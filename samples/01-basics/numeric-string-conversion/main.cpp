@@ -1,10 +1,10 @@
-﻿#include <string>
-#include <cassert>
-#include <sstream>
+﻿#include <cassert>
+#include <cfloat>
+#include <cmath>
 #include <iomanip>
 #include <iostream>
-#include <cmath>
-#include <cfloat>
+#include <sstream>
+#include <string>
 
 void main()
 {
@@ -48,7 +48,7 @@ void main()
 			// сюда мы не попадем
 			assert(false);
 		}
-		catch (const std::invalid_argument & err)
+		catch (const std::invalid_argument& err)
 		{
 			// попадем сюда
 			std::cout << err.what();
@@ -59,7 +59,7 @@ void main()
 			int i = std::stoi("123not a number");
 			assert(i == 123);
 		}
-		catch (const std::invalid_argument & /*err*/)
+		catch (const std::invalid_argument& /*err*/)
 		{
 			// сюда не попадем, т.к. удалось сконвертировать хоть что-то
 			assert(false);
@@ -71,12 +71,25 @@ void main()
 			// сюда мы не попадем
 			assert(false);
 		}
-		catch (const std::out_of_range & err)
+		catch (const std::out_of_range& err)
 		{
 			// попадем сюда, т.к. 5555555555 не помещается в int
 			std::cout << err.what();
 		}
 
+		try
+		{
+			size_t pos;
+			std::string s = "123not a number";
+			int result = std::stoi(s, &pos);
+			assert(result == 123);
+			assert(s[pos] == 'n');
+		}
+		catch (const std::exception&)
+		{
+			// сюда не попадём, так как преобразовать смогли
+			assert(false);
+		}
 	}
 
 	{
@@ -84,7 +97,7 @@ void main()
 		std::istringstream strm("123.78");
 		double value;
 		strm >> value; // считываем значение типа double
-		assert(strm);  // проверяем на наличие ошибки
+		assert(strm); // проверяем на наличие ошибки
 		assert(abs(value - 123.78) < DBL_EPSILON);
 	}
 
@@ -93,7 +106,6 @@ void main()
 		std::istringstream strm("not-a-string");
 		double value;
 		strm >> value; // считываем значение типа double
-		assert(!strm);  // ожидаем, что поток находится в состоянии ошибки, т.к. считать double не вышло
+		assert(!strm); // ожидаем, что поток находится в состоянии ошибки, т.к. считать double не вышло
 	}
-
 }
