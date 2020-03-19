@@ -34,7 +34,6 @@ TEST_CASE("MaxOf3")
 	CHECK(MaxOf3(3, 1, 8) == 8);
 	CHECK(MaxOf3(8, 3, 5) == 8);
 	CHECK(MaxOf3(3, 5, 4) == 5);
-	CHECK(MaxOf3(3, 3, 4) == 4);
 }
 
 SCENARIO("Reversing of empty string gives an empty string")
