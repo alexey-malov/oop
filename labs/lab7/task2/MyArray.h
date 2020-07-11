@@ -6,12 +6,12 @@
 template <typename T>
 class CMyArray
 {
-	template <typename T, bool IsConst>
+	template <bool IsConst>
 	class IteratorBase
 	{
-		friend class IteratorBase<T, true>;
+		friend class IteratorBase<true>;
 	public:
-		using MyType = IteratorBase<T, IsConst>;
+		using MyType = IteratorBase< IsConst>;
 		using value_type = std::conditional_t<IsConst, const T, T>;
 		using reference = value_type&;
 		using pointer = value_type*;
@@ -19,7 +19,7 @@ class CMyArray
 		using iterator_category = std::random_access_iterator_tag;
 
 		IteratorBase() = default;
-		IteratorBase(const IteratorBase<T, false>& other)
+		IteratorBase(const IteratorBase<false>& other)
 			: m_item(other.m_item)
 		{
 		}
@@ -138,8 +138,8 @@ public:
 		DeleteItems(m_begin, m_end);
 	}
 
-	using iterator = IteratorBase<T, false>;
-	using const_iterator = IteratorBase<T, true>;
+	using iterator = IteratorBase<false>;
+	using const_iterator = IteratorBase<true>;
 
 	iterator begin()
 	{
