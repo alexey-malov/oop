@@ -1,24 +1,24 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include "MyClassName.h"
 
 
-// Реализация конструктора класса
-CMyClassName::CMyClassName()
-	:m_memberVariable(10)// Для инициализации полей класса в конструкторе используются списки инициализации
+// Р РµР°Р»РёР·Р°С†РёСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РєР»Р°СЃСЃР°
+MyClassName::MyClassName()
+	:m_memberVariable(10)// Р”Р»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РїРѕР»РµР№ РєР»Р°СЃСЃР° РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРµ РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ СЃРїРёСЃРєРё РёРЅРёС†РёР°Р»РёР·Р°С†РёРё
 {
 }
 
-// Реализация деструктора класса
-CMyClassName::~CMyClassName()
+// Р РµР°Р»РёР·Р°С†РёСЏ РґРµСЃС‚СЂСѓРєС‚РѕСЂР° РєР»Р°СЃСЃР°
+MyClassName::~MyClassName()
 {
 }
 
-void CMyClassName::DoSomething(int parameterName, int someAnotherMethodName)
+void MyClassName::DoSomething(int parameterName, int someAnotherMethodName)
 {
 	m_memberVariable += parameterName + someAnotherMethodName * 2;
 }
 
-int CMyClassName::SomeProtectedMethod(int someParameter)const
+int MyClassName::SomeProtectedMethod(int someParameter)const
 {
 	return m_memberVariable + someParameter;
 }
