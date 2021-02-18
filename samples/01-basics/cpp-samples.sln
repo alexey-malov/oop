@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2016
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "variables", "variables\variables.vcxproj", "{EDF554B1-8D24-4A13-AE48-7992AB0A2775}"
 EndProject
@@ -58,6 +58,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Booleans", "Booleans\Booleans.vcxproj", "{09F50B18-DDFD-4905-A280-7EFCAB8C378D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Operators", "Operators\Operators.vcxproj", "{EB95DECC-0F3C-44DC-A4A5-81F09DBEA274}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "memory_model", "memory_model\memory_model.vcxproj", "{81232ECF-118A-4450-99AD-4C85E98B0417}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -233,6 +235,14 @@ Global
 		{EB95DECC-0F3C-44DC-A4A5-81F09DBEA274}.Release|Win32.Build.0 = Release|Win32
 		{EB95DECC-0F3C-44DC-A4A5-81F09DBEA274}.Release|x64.ActiveCfg = Release|x64
 		{EB95DECC-0F3C-44DC-A4A5-81F09DBEA274}.Release|x64.Build.0 = Release|x64
+		{81232ECF-118A-4450-99AD-4C85E98B0417}.Debug|Win32.ActiveCfg = Debug|Win32
+		{81232ECF-118A-4450-99AD-4C85E98B0417}.Debug|Win32.Build.0 = Debug|Win32
+		{81232ECF-118A-4450-99AD-4C85E98B0417}.Debug|x64.ActiveCfg = Debug|x64
+		{81232ECF-118A-4450-99AD-4C85E98B0417}.Debug|x64.Build.0 = Debug|x64
+		{81232ECF-118A-4450-99AD-4C85E98B0417}.Release|Win32.ActiveCfg = Release|Win32
+		{81232ECF-118A-4450-99AD-4C85E98B0417}.Release|Win32.Build.0 = Release|Win32
+		{81232ECF-118A-4450-99AD-4C85E98B0417}.Release|x64.ActiveCfg = Release|x64
+		{81232ECF-118A-4450-99AD-4C85E98B0417}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -260,6 +270,7 @@ Global
 		{973409C2-504C-4115-BACF-79DFD31CE6E5} = {AF896B69-EBA7-4204-A392-3BE0682F1615}
 		{09F50B18-DDFD-4905-A280-7EFCAB8C378D} = {C74FB830-DCD2-4CB1-A1A8-F95A9C48B6AE}
 		{EB95DECC-0F3C-44DC-A4A5-81F09DBEA274} = {C74FB830-DCD2-4CB1-A1A8-F95A9C48B6AE}
+		{81232ECF-118A-4450-99AD-4C85E98B0417} = {E9EBAAD8-DDF1-42B5-8E49-037E59932C0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A696F1B6-E662-44C7-91BE-BC833A0CE4F0}
