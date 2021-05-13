@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "task1", "task1\task1.vcxproj", "{B0F99CB0-77FA-4202-A68A-F2762B5C9060}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TrimBlanksTests", "task2\TrimBlanksTests\TrimBlanksTests.vcxproj", "{2DEBDEEE-8223-41D3-8655-6A40EBD2C157}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TrimBlanksTestsWithCatch", "TrimBlanksTestsWithCatch\TrimBlanksTestsWithCatch.vcxproj", "{D3417870-823E-4655-9C94-70532C42B4B6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "catch2_test", "catch2_test\catch2_test.vcxproj", "{63043F71-9CA2-4960-B8F9-F769BBA0ED4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,14 @@ Global
 		{D3417870-823E-4655-9C94-70532C42B4B6}.Release|Win32.Build.0 = Release|Win32
 		{D3417870-823E-4655-9C94-70532C42B4B6}.Release|x64.ActiveCfg = Release|x64
 		{D3417870-823E-4655-9C94-70532C42B4B6}.Release|x64.Build.0 = Release|x64
+		{63043F71-9CA2-4960-B8F9-F769BBA0ED4C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{63043F71-9CA2-4960-B8F9-F769BBA0ED4C}.Debug|Win32.Build.0 = Debug|Win32
+		{63043F71-9CA2-4960-B8F9-F769BBA0ED4C}.Debug|x64.ActiveCfg = Debug|x64
+		{63043F71-9CA2-4960-B8F9-F769BBA0ED4C}.Debug|x64.Build.0 = Debug|x64
+		{63043F71-9CA2-4960-B8F9-F769BBA0ED4C}.Release|Win32.ActiveCfg = Release|Win32
+		{63043F71-9CA2-4960-B8F9-F769BBA0ED4C}.Release|Win32.Build.0 = Release|Win32
+		{63043F71-9CA2-4960-B8F9-F769BBA0ED4C}.Release|x64.ActiveCfg = Release|x64
+		{63043F71-9CA2-4960-B8F9-F769BBA0ED4C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
