@@ -1,6 +1,10 @@
 Все идентификаторы и комментарии должны быть на английском языке.
+
 Мы в целом соблюдаем [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) — их список не надо читать целиком, но можно ссылаться на них при Code Review.
-Не проверяйте форматирование вручную: используйте [расширение ClangFormat для Visual Studio](https://marketplace.visualstudio.com/items?itemName=HansWennborg.ClangFormat). Файл конфигурации для ClangFormat (`.clang-format`), соответствующий нашим соглашениям о кодировании, уже находится в репозитории проекта.
+
+Не проверяйте форматирование вручную: используйте [расширение ClangFormat для Visual Studio](https://marketplace.visualstudio.com/items?itemName=HansWennborg.ClangFormat).
+- Файл конфигурации для ClangFormat (`.clang-format`), соответствующий нашим соглашениям о кодировании, уже находится в репозитории проекта
+- Вы можете скопировать этот файл в каталог, в котором находятся все ваши лабораторные работы
 
 # Оформление комментариев
 
