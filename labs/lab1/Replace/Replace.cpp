@@ -1,8 +1,12 @@
 #include "stdafx.h"
 
+// Возвращает результат замены всех вхождения строки searchString внутри строки subject на replacementString
+// Если строка searchString пустая, то возвращается subject
 std::string ReplaceString(const std::string& subject,
 	const std::string& searchString, const std::string& replacementString)
 {
+	// Эта функция написана не до конца. Напишите недостающий код самостоятельно
+
 	size_t pos = 0;
 	// Результат будет записан в новую строку result, оставляя строку subject неизменной
 	// Какие преимущества есть у этого способа по сравнению с алгоритмом, выполняющим
@@ -20,7 +24,7 @@ std::string ReplaceString(const std::string& subject,
 	return result;
 }
 
-void CopyFileWithReplace(std::istream& input, std::ostream& output,
+void CopyStreamWithReplacement(std::istream& input, std::ostream& output,
 	const std::string& searchString, const std::string& replacementString)
 {
 	std::string line;
@@ -40,6 +44,10 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
+	// Самостоятельно выделите код копирования содержимого файла в отдельную функцию CopyFileWithReplacement,
+	// принимающую имена файлов, а также строки для поиска и замены
+	// Добавьте обработку ошибок
+
 	std::ifstream inputFile;
 	inputFile.open(argv[1]);
 
@@ -49,7 +57,8 @@ int main(int argc, char* argv[])
 	std::string search = argv[3];
 	std::string replace = argv[4];
 
-	CopyFileWithReplace(inputFile, outputFile, search, replace);
+	CopyStreamWithReplacement(inputFile, outputFile, search, replace);
+	// Подумайте, для чего здесь вызывается flush?
 	outputFile.flush();
 
 	return 0;
