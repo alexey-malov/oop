@@ -1,26 +1,21 @@
-// Replace.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 
 std::string ReplaceString(const std::string& subject,
 	const std::string& searchString, const std::string& replacementString)
 {
 	size_t pos = 0;
+	// Результат будет записан в новую строку result, оставляя строку subject неизменной
+	// Какие преимущества есть у этого способа по сравнению с алгоритмом, выполняющим
+	// замену прямо в строке subject?
 	std::string result;
 	while (pos < subject.length())
 	{
+		// Находим позицию искомой строки, начиная с pos
 		size_t foundPos = subject.find(searchString, pos);
+		// В результирующую строку записываем текст из диапазона [pos,foundPos)
 		result.append(subject, pos, foundPos - pos);
-		if (foundPos != std::string::npos) 
-		{
-			result.append(replacementString);
-			pos = foundPos + searchString.length();
-		}
-		else
-		{
-			break;
-		}
+
+		// Напишите недостающий код самостоятельно, чтобы функция работала корректно
 	}
 	return result;
 }
