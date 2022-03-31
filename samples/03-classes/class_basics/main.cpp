@@ -1,7 +1,8 @@
 #define _USE_MATH_DEFINES
-#include <math.h>
+#include <cmath>
 #include <memory>
 #include <iostream>
+#include <vector>
 
 enum class MakeOfCar
 {
@@ -116,8 +117,9 @@ void Date::Next()
 	// ...
 }
 
+using namespace std;
 
 int main()
 {
-	return 0;
 }
+
