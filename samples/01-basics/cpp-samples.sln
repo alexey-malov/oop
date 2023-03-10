@@ -63,6 +63,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "memory_model", "memory_mode
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "arg-passing", "arg-passing\arg-passing.vcxproj", "{A1A2608B-C27E-457E-9EA0-F6746CED3947}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "namespaces", "namespaces\namespaces.vcxproj", "{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -253,6 +255,14 @@ Global
 		{A1A2608B-C27E-457E-9EA0-F6746CED3947}.Release|Win32.Build.0 = Release|Win32
 		{A1A2608B-C27E-457E-9EA0-F6746CED3947}.Release|x64.ActiveCfg = Release|x64
 		{A1A2608B-C27E-457E-9EA0-F6746CED3947}.Release|x64.Build.0 = Release|x64
+		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Debug|Win32.Build.0 = Debug|Win32
+		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Debug|x64.ActiveCfg = Debug|x64
+		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Debug|x64.Build.0 = Debug|x64
+		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Release|Win32.ActiveCfg = Release|Win32
+		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Release|Win32.Build.0 = Release|Win32
+		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Release|x64.ActiveCfg = Release|x64
+		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -282,6 +292,7 @@ Global
 		{EB95DECC-0F3C-44DC-A4A5-81F09DBEA274} = {C74FB830-DCD2-4CB1-A1A8-F95A9C48B6AE}
 		{81232ECF-118A-4450-99AD-4C85E98B0417} = {E9EBAAD8-DDF1-42B5-8E49-037E59932C0B}
 		{A1A2608B-C27E-457E-9EA0-F6746CED3947} = {AF896B69-EBA7-4204-A392-3BE0682F1615}
+		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1} = {AF896B69-EBA7-4204-A392-3BE0682F1615}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A696F1B6-E662-44C7-91BE-BC833A0CE4F0}
