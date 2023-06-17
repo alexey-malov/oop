@@ -1,14 +1,14 @@
-#include <vector>
-#include <string>
 #include <algorithm>
+#include <functional>
 #include <iostream>
 #include <iterator>
-#include <functional>
+#include <string>
+#include <vector>
 
 using namespace std;
 
 template <typename T, typename Comp>
-void Sort(vector<T> & arr, Comp const& comp)
+void Sort(vector<T>& arr, Comp const& comp)
 {
 	size_t n = arr.size();
 	for (size_t i = 0; i < n - 1; i++)
@@ -23,15 +23,53 @@ void Sort(vector<T> & arr, Comp const& comp)
 	}
 }
 
+template <typename T>
+void Sort3(T& v1, T& v2, T& v3)
+{
+	if (v1 > v2)
+		std::swap(v1, v2);
+	if (v2 > v3)
+		std::swap(v2, v2);
+	if (v1 > v2)
+		std::swap(v1, v2);
+}
+
+void TestSort3()
+{
+	int x, y, z;
+	cin >> x >> y >> z;
+	Sort3(x, y, z);
+	std::cout << x << ' ' << y << ' ' << z << '\n';
+}
+
+template <typename T>
+struct Descending
+{
+	bool operator()(const T& lhs, const T& rhs) const
+	{
+		return lhs > rhs;
+	}
+};
+
+template <typename T>
+struct Ascending
+{
+	bool operator()(const T& lhs, const T& rhs) const
+	{
+		return lhs < rhs;
+	}
+};
 
 int main()
 {
+	TestSort3();
+
 	vector<string> strings = {
 		"nyash", "myash",
 		"crimea", "is", "ours"
 	};
 
-	Sort(strings, [](const string& lhs, const string& rhs){
+	Sort(strings, [](const string& lhs, const string& rhs) {
 		return lhs.length() < rhs.length();
 	});
 
@@ -39,9 +77,8 @@ int main()
 
 	cout << endl;
 	vector<int> numbers = { 1, 5, 2, -4, -6, 3, -5, 3, 8, 9, 4, 3 };
-	Sort(numbers, [](int lhs, int rhs){
-
-		bool lhsIsEven = (abs(lhs) % 2 == 0);	
+	Sort(numbers, [](int lhs, int rhs) {
+		bool lhsIsEven = (abs(lhs) % 2 == 0);
 		int result = (abs(lhs) % 2) - (abs(rhs) % 2);
 
 		if (result != 0)
@@ -75,16 +112,17 @@ int main()
 		{ "Gaz-69", 50'000 },
 	};
 
-	auto priceAsc = [](const Car & lhs, const Car & rhs) {
+	auto priceAsc = [](const Car& lhs, const Car& rhs) {
 		return lhs.price < rhs.price;
 	};
 
 	Sort(cars, priceAsc);
 	transform(cars.begin(), cars.end(), ostream_iterator<string>(cout, ", "),
-		[](const Car& car) { 
-			return car.model + " " + to_string(car.price); 
-		}
-	);
+		[](const Car& car) {
+			return car.model + " " + to_string(car.price);
+		});
 	cout << endl;
 
+	Sort(numbers, Descending<int>());
+	std::copy(numbers.begin(), numbers.end(), ostream_iterator<int>(cout, ", "));
 }

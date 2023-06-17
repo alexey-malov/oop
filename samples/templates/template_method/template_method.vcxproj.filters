@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="namespaces.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sandbox.cpp">
+    <ClCompile Include="template_method.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

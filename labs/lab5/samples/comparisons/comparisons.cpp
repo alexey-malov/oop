@@ -1,6 +1,31 @@
 #include <cassert>
 #include <compare>
+#include <unordered_map>
+#include <string>
+#include <iostream>
 
+namespace bad
+{
+class Rational
+{
+public:
+	constexpr Rational(int num = 0, int denom = 1)
+		: m_num{ num }
+		, m_denom{ denom }
+	{
+		// Для простоты не реализованы проверки и упрощение дроби
+	}
+
+	// Проект должен быть собран в режиме C++20
+	constexpr auto operator<=>(const Rational& lhs) const noexcept = default;
+
+private:
+	int m_num, m_denom;
+};
+} // namespace bad
+
+namespace good
+{
 class Rational
 {
 public:
@@ -14,7 +39,7 @@ public:
 	// Проект должен быть собран в режиме C++20
 	constexpr std::strong_ordering operator<=>(const Rational& lhs) const noexcept
 	{
-		return (m_num * lhs.m_denom) <=> (lhs.m_denom * m_num);
+		return (m_num * lhs.m_denom) <=> (lhs.m_num * m_denom);
 	}
 
 	// Если operator<=> не defaulted, то оператор == надо объявить
@@ -23,16 +48,97 @@ public:
 private:
 	int m_num, m_denom;
 };
+} // namespace good
+
+class TV
+{
+public:
+	bool IsTurnedOn() const noexcept
+	{
+		return m_isTurnedOn;
+	}
+
+private:
+	bool m_isTurnedOn;
+};
+
+class MyString
+{
+public:
+	MyString(MyString&& other) noexcept
+		: m_chars(other.m_chars)
+		, m_size(other.m_size)
+		, m_capacity(other.m_capacity)
+	{
+		other.m_chars = nullptr;
+		other.m_size = m_capacity = 0;
+	}
+
+private:
+	char* m_chars;
+	size_t m_size;
+	size_t m_capacity;
+};
+
+namespace sample1
+{
+class Dictionary
+{
+public:
+	Dictionary(Dictionary&& other)
+		: m_translations(std::move(other.m_translations))
+	{
+	}
+
+private:
+	std::unordered_map<std::string, std::string> m_translations;
+};
+} // namespace sample1
+
+class Dictionary
+{
+public:
+	Dictionary(Dictionary&& other) noexcept(false)
+		: m_translations(std::move(other.m_translations))
+	{
+	}
+
+private:
+	std::unordered_map<std::string, std::string> m_translations;
+};
 
 int main()
 {
-	assert(Rational(1, 2) < Rational(2, 3));
-	assert(Rational(1, 2) <= Rational(2, 3));
-	assert(Rational(1, 2) <= Rational(1, 2));
-	assert(Rational(1, 2) > Rational(1, 3));
-	assert(Rational(1, 2) >= Rational(1, 3));
-	assert(Rational(1, 2) == Rational(1, 3));
-	assert(Rational(1, 2) != Rational(1, 3));
+	using namespace std::literals;
+	static_assert(!noexcept("hello"s + "world"s));
+	std::cout << noexcept("hello"s + "world"s) << std::endl;
+	return 0;
+
+
+	{
+		using bad::Rational;
+		assert(Rational(1, 2) == Rational(1, 2));
+		assert(!(Rational(1, 2) == Rational(1, 3)));
+		assert(Rational(1, 2) != Rational(1, 3));
+		assert(!(Rational(1, 2) != Rational(1, 2)));
+		assert(Rational(1, 2) < Rational(2, 3));
+		assert(Rational(1, 2) <= Rational(2, 3));
+		assert(Rational(1, 2) <= Rational(1, 2));
+		assert(Rational(1, 2) > Rational(1, 3));
+		assert(Rational(1, 2) >= Rational(1, 3));
+	}
+	{
+		using good::Rational;
+		assert(Rational(1, 2) < Rational(2, 3));
+		assert(Rational(1, 2) <= Rational(2, 3));
+		assert(Rational(1, 2) <= Rational(1, 2));
+		assert(Rational(1, 2) > Rational(1, 3));
+		assert(Rational(1, 2) >= Rational(1, 3));
+		assert(Rational(1, 2) == Rational(1, 2));
+		assert(!(Rational(1, 2) == Rational(1, 3)));
+		assert(Rational(1, 2) != Rational(1, 3));
+		assert(!(Rational(1, 2) != Rational(1, 2)));
+	}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

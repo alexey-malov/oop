@@ -2,6 +2,7 @@
 // PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
 
 #include <iostream>
+#include <vector>
 
 void Print0()
 {
@@ -36,8 +37,6 @@ void Print4(const T1& v1, const T2 & v2, const T3 & v3, const T4 & v4)
 }
 
 
-
-
 template <typename Arg1, typename ...Args>
 void Print(Arg1 && arg1, Args &&...args)
 {
@@ -67,10 +66,12 @@ using namespace std;
 
 int main()
 {
-
-	Print("hi", 1, 2, "hello");
+	Print("hi", 1, 2, "hello", 3.5);
 	cout << endl;
 	cout << Max(1, 2, 3, -3) << endl;
+
+	std::vector<std::string> strings;
+	strings.emplace_back('A', 3);
 
 	return 0;
 }
