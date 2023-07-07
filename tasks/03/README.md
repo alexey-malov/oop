@@ -262,10 +262,10 @@ Intersection rectangle:
 class CCanvas
 {
 public:
-// Создает канву для рисования размером width*height
-// После своего создания содержимое канвы заполнено пробельными символами
-// Допускается создание канвы нулевых размеров
-CCanvas(unsigned width, unsigned height);
+    // Создает канву для рисования размером width*height
+    // После своего создания содержимое канвы заполнено пробельными символами
+    // Допускается создание канвы нулевых размеров
+    CCanvas(unsigned width, unsigned height);
 
 	// Возвращает ширину канвы
 	unsigned GetWidth()const;
@@ -294,7 +294,7 @@ CCanvas(unsigned width, unsigned height);
 	// В конце каждой строки должен выводиться символ \n
 	void Write(std::ostream & ostream)const;
 private:
-// Закрытые данные и методы класса
+    // Закрытые данные и методы класса
 };
 ```
 Объявление функции FillRectangle представлено ниже

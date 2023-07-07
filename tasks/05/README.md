@@ -31,8 +31,8 @@
 class CComplex
 {
 public:
-// инициализация комплексного числа значениями действительной и мнимой частей
-CComplex(double real = 0, double image = 0);
+    // инициализация комплексного числа значениями действительной и мнимой частей
+    CComplex(double real = 0, double image = 0);
 
 	// возвращает действительную часть комплексного числа
 	double Re()const;
@@ -162,8 +162,8 @@ CComplex(double real = 0, double image = 0);
 class CVector3D
 {
 public:
-// Конструирует нулевой вектор
-CVector3D();
+    // Конструирует нулевой вектор
+    CVector3D();
 
 	// Конструирует вектор с заданными координатами
 	CVector3D(double x0, double y0, double z0);
@@ -465,8 +465,8 @@ CRational();
 class CRational
 {
 public:
-// Возвращает представление рационального числа в виде смешанной дроби
-std::pair<int, CRational> ToCompoundFraction()const;
+    // Возвращает представление рационального числа в виде смешанной дроби
+    std::pair<int, CRational> ToCompoundFraction()const;
 };
 ```
 
@@ -619,25 +619,25 @@ CTime(unsigned hours, unsigned minutes, unsigned seconds = 0);
 // Месяц
 enum class Month
 {
-JANUARY = 1, FEBRUARY, MARCH, APRIL,
-MAY, JUNE, JULY, AUGUST, SEPTEMBER,
-OCTOBER, NOVEMBER, DECEMBER
+    JANUARY = 1, FEBRUARY, MARCH, APRIL,
+    MAY, JUNE, JULY, AUGUST, SEPTEMBER,
+    OCTOBER, NOVEMBER, DECEMBER
 };
 
 // День недели
 enum class WeekDay
 {
-SUNDAY = 0, MONDAY, TUESDAY, WEDNESDAY,
-THURSDAY, FRIDAY, SATURDAY
+    SUNDAY = 0, MONDAY, TUESDAY, WEDNESDAY,
+    THURSDAY, FRIDAY, SATURDAY
 };
 
 // Дата в формате день-месяц-год. Год в диапазоне от 1970 до 9999
 class CDate
 {
 public:
-// инициализируем дату заданными днем, месяцем и годом.
-// примечание: год >= 1970
-CDate(unsigned day, Month month, unsigned year);
+    // инициализируем дату заданными днем, месяцем и годом.
+    // примечание: год >= 1970
+    CDate(unsigned day, Month month, unsigned year);
 
 	// инициализируем дату количеством дней, прошедших после 1 января 1970 года
 	// например, 2 = 3 января 1970, 32 = 2 февраля 1970 года и т.д.
@@ -761,16 +761,16 @@ CDate(unsigned day, Month month, unsigned year);
 class CMyString
 {
 public:
-// конструктор по умолчанию
-CMyString();
+    // конструктор по умолчанию
+    CMyString();
 
 	// конструктор, инициализирующий строку данными строки
-// с завершающим нулевым символом
-CMyString(const char * pString);
+    // с завершающим нулевым символом
+    CMyString(const char * pString);
 
 	// конструктор, инициализирующий строку данными из 
-// символьного массива заданной длины
-CMyString(const char * pString, size_t length);
+    // символьного массива заданной длины
+    CMyString(const char * pString, size_t length);
 
 	// конструктор копирования
 	CMyString(CMyString const& other);
@@ -780,8 +780,8 @@ CMyString(const char * pString, size_t length);
 	CMyString(CMyString && other);
 
 	// конструктор, инициализирующий строку данными из 
-// строки стандартной библиотеки C++
-CMyString(std::string const& stlString);
+    // строки стандартной библиотеки C++
+    CMyString(std::string const& stlString);
 
 	// деструктор класса - освобождает память, занимаемую символами строки
 	~CMyString();

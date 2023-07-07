@@ -332,9 +332,9 @@ Protocol – это перечислимый тип, задающий один �
 ```c++
 enum class Protocol
 {
-HTTP,
-HTTPS,
-FTP
+    HTTP,
+    HTTPS,
+    FTP
 };
 ```
 Валидным (допустимым) URL-ом программа должна считать строку в следующем формате:
@@ -388,13 +388,13 @@ using namespace std;
 
 int main()
 {
-{
-string const tpl = "Hello, %USER_NAME%. Today is {WEEK_DAY}.";
-map<string, string> params;
-params["%USER_NAME%"] = "Ivan Petrov";
-params["{WEEK_DAY}"] = "Friday";
-assert(ExpandTemplate(tpl, params) == "Hello, Ivan Petrov. Today is Friday.");
-}
+    {
+        string const tpl = "Hello, %USER_NAME%. Today is {WEEK_DAY}.";
+        map<string, string> params;
+        params["%USER_NAME%"] = "Ivan Petrov";
+        params["{WEEK_DAY}"] = "Friday";
+        assert(ExpandTemplate(tpl, params) == "Hello, Ivan Petrov. Today is Friday.");
+    }
 
 	{
 		string const tpl = "Hello, %USER_NAME%. Today is {WEEK_DAY}.";
@@ -535,10 +535,10 @@ expand_template.exe input.txt output.txt "тепло" "холодно" "соле
 Например
 ```c++
 char ch1, ch2;
-   std::cin >> ch1;
-   std::cin.unget(); // вернули считанный символ в поток cin
-   std::cin >> ch2;
-   // В ch2 будет лежать тот же символ, что и в ch
+std::cin >> ch1;
+std::cin.unget(); // вернули считанный символ в поток cin
+std::cin >> ch2;
+// В ch2 будет лежать тот же символ, что и в ch
 ```
 Справочная информация
 
