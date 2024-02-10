@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CopyFile", "CopyFile\CopyFile.vcxproj", "{F545A7E4-1A87-4523-9FDE-21C197DB7921}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FindText", "FindText\FindText.vcxproj", "{FECA454F-7CBE-4D0F-BEE6-C06F0B25B3F9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Replace", "Replace\Replace.vcxproj", "{27536BA2-EEE2-4BB3-BC77-52C4E22AA99C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CalcBits", "CalcBits\CalcBits.vcxproj", "{D6BD64B9-5C59-4C3F-88E3-1AAA805BA4E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,14 @@ Global
 		{27536BA2-EEE2-4BB3-BC77-52C4E22AA99C}.Release|Win32.Build.0 = Release|Win32
 		{27536BA2-EEE2-4BB3-BC77-52C4E22AA99C}.Release|x64.ActiveCfg = Release|x64
 		{27536BA2-EEE2-4BB3-BC77-52C4E22AA99C}.Release|x64.Build.0 = Release|x64
+		{D6BD64B9-5C59-4C3F-88E3-1AAA805BA4E6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D6BD64B9-5C59-4C3F-88E3-1AAA805BA4E6}.Debug|Win32.Build.0 = Debug|Win32
+		{D6BD64B9-5C59-4C3F-88E3-1AAA805BA4E6}.Debug|x64.ActiveCfg = Debug|x64
+		{D6BD64B9-5C59-4C3F-88E3-1AAA805BA4E6}.Debug|x64.Build.0 = Debug|x64
+		{D6BD64B9-5C59-4C3F-88E3-1AAA805BA4E6}.Release|Win32.ActiveCfg = Release|Win32
+		{D6BD64B9-5C59-4C3F-88E3-1AAA805BA4E6}.Release|Win32.Build.0 = Release|Win32
+		{D6BD64B9-5C59-4C3F-88E3-1AAA805BA4E6}.Release|x64.ActiveCfg = Release|x64
+		{D6BD64B9-5C59-4C3F-88E3-1AAA805BA4E6}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

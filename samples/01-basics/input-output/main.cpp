@@ -1,16 +1,16 @@
-﻿#include <fstream>
-#include <sstream>
-#include <iostream>
-#include <string>
+﻿#include "PngFileHeader.h"
 #include <cassert>
 #include <cstdint>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
 #include <winsock.h>
-#include "PngFileHeader.h"
 
 using namespace std;
 
 // Пример функции, использующей работу с двоичными файлами для чтения информации о PNG-изображении (PngFileHeader.h)
-bool GetPngFileInfo(const wstring & fileName, PNGInfo & pngInfo);
+bool GetPngFileInfo(const wstring& fileName, PNGInfo& pngInfo);
 
 void main()
 {
@@ -26,7 +26,7 @@ void main()
 			outputFile.flush();
 
 			// Лаконичный способ проверить поток на состояние ошибки
-			if (!outputFile) 
+			if (!outputFile)
 			{
 				cout << "An error occurred when writing outputFile" << endl;
 			}
@@ -63,7 +63,7 @@ void main()
 		PNGInfo pngInfo;
 		if (GetPngFileInfo(L"test.png", pngInfo))
 		{
-			auto & hdr = pngInfo.imageHeader;
+			auto& hdr = pngInfo.imageHeader;
 			cout << "test.png file size is " << hdr.width << "x" << hdr.height << "pixels" << endl;
 		}
 		else
@@ -108,7 +108,7 @@ void main()
 	}
 }
 
-bool GetPngFileInfo(const wstring & fileName, PNGInfo & pngInfo)
+bool GetPngFileInfo(const wstring& fileName, PNGInfo& pngInfo)
 {
 	ifstream pngFile(fileName, ios_base::binary | ios_base::in);
 	if (!pngFile.is_open())
@@ -128,7 +128,7 @@ bool GetPngFileInfo(const wstring & fileName, PNGInfo & pngInfo)
 		return false;
 	}
 
-	auto & hdr = pngInfo.imageHeader;
+	auto& hdr = pngInfo.imageHeader;
 
 	// В PNG используется сетевой порядок байт (big-endian) для представления чисел размером больше 1 байта,
 	// нужно преобразовать его в формат, используемых на данном компьютере
