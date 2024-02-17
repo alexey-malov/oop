@@ -125,9 +125,15 @@ int main()
 
 	// В военное время значение числа Пи может достигать четырех
 	{
-		const double PI = 3.14159265;
+		// Оригинальный объект не является константным
+		double PI = 3.14159265;
 
-		const_cast<double&>(PI) = 4;
+		const double& CONST_PI = PI;
+		// Изменить константную ссылку CONST_PI нельзя:
+		// CONST_PI = 4;
+
+		// Но можно снять константность со ссылки и модифицировать объект.
+		const_cast<double&>(CONST_PI) = 4;
 
 		std::cout << "Now pi is " << PI << std::endl;
 	}
@@ -141,6 +147,20 @@ int main()
 	};
 
 	return 0;
+}
+
+// PI - константный объект.
+const double PI = 3.1415927;
+int ThisWillNotWork()
+{
+	// Здесь мы обманываем компилятор, снимая константность к константной переменной.
+	double& nonConstPI = const_cast<double&>(PI);
+
+	// Попытка изменить константный объект, сняв константность со ссылки на него,
+	// приводит к неопределённому поведению
+	nonConstPI = 4;
+
+	std::cout << "PI:" << PI << ", nonConstPI: " << nonConstPI << std::endl;
 }
 
 int GetRandomNumber()
