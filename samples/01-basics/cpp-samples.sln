@@ -65,6 +65,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "arg-passing", "arg-passing\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "namespaces", "namespaces\namespaces.vcxproj", "{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{9EE0B144-9FB5-4A95-9B36-C008F670D16E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -263,6 +265,14 @@ Global
 		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Release|Win32.Build.0 = Release|Win32
 		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Release|x64.ActiveCfg = Release|x64
 		{63FC5203-DF1F-42FF-809D-9E3EB57A96D1}.Release|x64.Build.0 = Release|x64
+		{9EE0B144-9FB5-4A95-9B36-C008F670D16E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9EE0B144-9FB5-4A95-9B36-C008F670D16E}.Debug|Win32.Build.0 = Debug|Win32
+		{9EE0B144-9FB5-4A95-9B36-C008F670D16E}.Debug|x64.ActiveCfg = Debug|x64
+		{9EE0B144-9FB5-4A95-9B36-C008F670D16E}.Debug|x64.Build.0 = Debug|x64
+		{9EE0B144-9FB5-4A95-9B36-C008F670D16E}.Release|Win32.ActiveCfg = Release|Win32
+		{9EE0B144-9FB5-4A95-9B36-C008F670D16E}.Release|Win32.Build.0 = Release|Win32
+		{9EE0B144-9FB5-4A95-9B36-C008F670D16E}.Release|x64.ActiveCfg = Release|x64
+		{9EE0B144-9FB5-4A95-9B36-C008F670D16E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
