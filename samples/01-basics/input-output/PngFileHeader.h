@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include <cstdint>
+
 // Сигнатура PNG-файла (первые 8 байт)
 // http://www.w3.org/TR/PNG/#5PNG-file-signature
 static const uint8_t PNG_SIGNATURE[] = { 137, 80, 78, 71, 13, 10, 26, 10 };

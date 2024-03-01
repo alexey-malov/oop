@@ -2,7 +2,9 @@
 #include <cassert>
 #include <cstdint>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
+#include <numbers>
 #include <sstream>
 #include <string>
 #include <winsock.h>
@@ -12,8 +14,46 @@ using namespace std;
 // Пример функции, использующей работу с двоичными файлами для чтения информации о PNG-изображении (PngFileHeader.h)
 bool GetPngFileInfo(const wstring& fileName, PNGInfo& pngInfo);
 
-void main()
+void StandardIO()
 {
+	int number;
+
+	// Читаем число из потока в number
+	std::cin >> number;
+	// Выводим число из number в поток вывода
+	std::cout << number << std::endl;
+	// Выводим число из number в поток ошибок
+	std::cerr << number << std::endl;
+
+	if (!(std::cin >> number))
+	{
+		// При чтении числа произошла ошибка
+	}
+}
+
+#include <iomanip>
+
+void IOManip()
+{
+	int number;
+	std::cin >> std::hex >> number; // Считываем число в hex-формате
+	std::cout << number
+			  << std::hex << " " << number << " "
+			  << std::oct << number << " "
+			  << std::dec << number << std::endl;
+
+	auto defaultPrecision = std::cout.precision();
+	std::cout << std::numbers::pi << " "
+			  << std::setprecision(15) << std::numbers::pi << " "
+			  << std::setprecision(3) << std::numbers::pi << " "
+			  << std::setprecision(defaultPrecision) << std::numbers::pi << std::endl;
+}
+
+int main()
+{
+	IOManip();
+	return 0;
+
 	// Запись текстового файла
 	{
 		// Открываем файл text.txt для записи
@@ -47,7 +87,7 @@ void main()
 			if (!getline(inputFile, line1))
 			{
 				cout << "Failed to read a line from file" << endl;
-				return;
+				return 1;
 			}
 
 			assert(line1 == "Hello, world: 10 42");
