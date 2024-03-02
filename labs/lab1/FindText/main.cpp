@@ -8,7 +8,7 @@ using namespace std;
 
 using FindStringCallback = function<void(int lineIndex, const string& line, size_t foundPos)>;
 
-bool FindStingInStream(
+bool FindStringInStream(
 	istream& haystack,
 	const string& needle,
 	const FindStringCallback& callback = FindStringCallback())
@@ -48,7 +48,7 @@ this haystack.
 )";
 	istringstream strm(hayStack);
 
-	if (!FindStingInStream(strm, "needle", PrintFoundLineIndex))
+	if (!FindStringInStream(strm, "needle", PrintFoundLineIndex))
 	{
 		cout << "No string found" << endl;
 	}
@@ -57,5 +57,5 @@ this haystack.
 	strm.seekg(0, ios_base::beg); // перемотали в начало
 
 	// можно не передавать callback и довольствоваться лишь информацией о наличии/отсутствии вхождений
-	assert(FindStingInStream(strm, "needle"));
+	assert(FindStringInStream(strm, "needle"));
 }

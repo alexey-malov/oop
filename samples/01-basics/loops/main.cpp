@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void main()
+int main()
 {
 	// Простейший цикл for
 	{
@@ -158,4 +158,52 @@ void main()
 		//		тело цикла
 		//	} while(true);
 	}
-}
+	{
+		int primes[] = { 2, 3, 5, 7, 11, 13, 17, 19, 23 };
+		for (auto prime : primes)
+		{
+			std::cout << prime << ' ';
+		}
+
+		// Этот цикл for аналогичен:
+		{
+			auto&& __range = primes;  // int(& __range)[9]
+			auto __begin = __range; // int* __begin
+			auto __end = __range + std::size(primes); // int* __end
+			for (; __begin != __end; ++__begin)
+			{
+				auto prime = *__begin;
+				{
+					std::cout << prime << ' ';
+				}
+			}
+		}
+	}
+	{
+		std::string text = "hello world";
+		for (bool isEven = false; auto& ch : text) {
+			if (isEven)
+				ch = static_cast<unsigned char>(
+					std::toupper(static_cast<unsigned char>(ch)));
+			isEven = !isEven;
+		}
+
+		// Этот цикл for аналогичен:
+		{
+			bool isEven = false;
+			auto&& __range = text;          // std::string& __range
+			auto __begin = __range.begin(); // std::string::iterator __begin
+			auto __end = __range.end();     // std::string::iterator __end
+			for (; __begin != __end; ++__begin)
+			{
+				auto& ch = *__begin; // char& ch
+				{
+					if (isEven)
+						ch = static_cast<unsigned char>(
+							std::toupper(static_cast<unsigned char>(ch)));
+					isEven = !isEven;
+				}
+			}
+		}
+	}
+	}
