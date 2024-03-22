@@ -1,10 +1,10 @@
-// constructors.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// constructors.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include "pch.h"
 #include <iostream>
-#include <string>
 #include <memory>
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -31,8 +31,44 @@ private:
 	vector<weak_ptr<Student>> m_friends;
 };
 
+class TV
+{
+public:
+	void TurnOn() { /* ... */ }
+};
+
+class RemoteControl
+{
+public:
+	RemoteControl(TV& tv, std::istream& input, std::ostream& output)
+		: m_tv{ tv }
+		, m_input{input}
+		, m_output{output}
+	{
+	}
+
+	bool ExecuteCommand() const
+	{
+		std::string command;
+		std::getline(m_input, command);
+		if (command == "TurnOn")
+		{
+			m_tv.TurnOn();
+			m_output << "TV is turned on" << std::endl;
+			return true;
+		}
+		return false; // Команда не найдена
+	}
+
+private:
+	TV& m_tv;
+	std::istream& m_input;
+	std::ostream& m_output;
+};
+
 int main()
 {
-	Student student("Ivan");
+	TV tv;
+	RemoteControl remoteControl{ tv, std::cin, std::cout };
+	remoteControl.ExecuteCommand();
 }
-
