@@ -75,6 +75,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "function", "function\functi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "max_element", "max_element\max_element.vcxproj", "{A1F7A69A-03CE-4506-9B2C-CC6375506F4E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "io_testing", "io_testing\io_testing.vcxproj", "{4B4D9464-5ACE-4FFB-BFC7-54B233ED9A34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -355,6 +357,14 @@ Global
 		{A1F7A69A-03CE-4506-9B2C-CC6375506F4E}.Release|Win32.Build.0 = Release|Win32
 		{A1F7A69A-03CE-4506-9B2C-CC6375506F4E}.Release|x64.ActiveCfg = Release|x64
 		{A1F7A69A-03CE-4506-9B2C-CC6375506F4E}.Release|x64.Build.0 = Release|x64
+		{4B4D9464-5ACE-4FFB-BFC7-54B233ED9A34}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4B4D9464-5ACE-4FFB-BFC7-54B233ED9A34}.Debug|Win32.Build.0 = Debug|Win32
+		{4B4D9464-5ACE-4FFB-BFC7-54B233ED9A34}.Debug|x64.ActiveCfg = Debug|x64
+		{4B4D9464-5ACE-4FFB-BFC7-54B233ED9A34}.Debug|x64.Build.0 = Debug|x64
+		{4B4D9464-5ACE-4FFB-BFC7-54B233ED9A34}.Release|Win32.ActiveCfg = Release|Win32
+		{4B4D9464-5ACE-4FFB-BFC7-54B233ED9A34}.Release|Win32.Build.0 = Release|Win32
+		{4B4D9464-5ACE-4FFB-BFC7-54B233ED9A34}.Release|x64.ActiveCfg = Release|x64
+		{4B4D9464-5ACE-4FFB-BFC7-54B233ED9A34}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
