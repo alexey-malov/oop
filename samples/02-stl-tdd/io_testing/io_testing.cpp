@@ -55,6 +55,10 @@ void Test()
 
 int main()
 {
+	std::ios_base::sync_with_stdio(false);
+	std::cout << "Hello";
+	fputs("World", stdout);
+
 	Test();
 
 	// В самой программе передаём std::cin и std:cout
