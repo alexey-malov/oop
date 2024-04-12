@@ -1,5 +1,6 @@
 ﻿#include <fstream>
 #include <iostream>
+#include <vector>
 
 //using namespace std;
 
@@ -129,6 +130,34 @@ int GenerateRandomNumber() {
 void OnClick()
 {
 }
+
+enum class Gear { 
+    NEUTRAL = 0, FIRST, SECOND, THIRD, FOURTH, FIFTH, REVERSE = -1 
+};
+
+struct GearSpeedRange {
+    Gear gear;     // Передача.
+    int minSpeed; // Минимальная скорость на этой передаче.
+    int maxSpeed; // Максимальная скорость на этой передаче.
+};
+
+// car.h
+
+class Car {
+    
+private:
+    // Так статическое поле объявляется и определяется внутри класса.
+    inline static const std::vector<GearSpeedRange> speed_ranges_ = {
+        { Gear::NEUTRAL, 0, 150 },
+        { Gear::FIRST, 0, 30 },
+        { Gear::SECOND, 20, 50 },
+        { Gear::THIRD, 30, 70 },
+        { Gear::FOURTH, 40, 100 },
+        { Gear::FIFTH, 60, 150 },
+        { Gear::REVERSE, 0, 30 },
+    };
+};
+
 
 int main(int argc, char* argv[]) {
 	if (argc != 3) { // Указаны ли верно параметры командной строки?
