@@ -39,25 +39,19 @@ private:
 	Color m_color;
 };
 
-class Circle : public Shape
-{
+class Circle : public Shape {
 public:
 	Circle(Color color, Point center, double radius)
-		: Shape(color)
-		, m_center{center}
-		, m_radius{radius}
-	{
+		: Shape(color) , m_center{center} , m_radius{radius}{
 	}
 
-	void Draw(Graphics& g) const override
-	{
+	void Draw(Graphics& g) const override {
 		g.SetColor(GetColor());
 		g.DrawEllipse(
 			{ m_center.x - m_radius, m_center.y - m_radius },
 			{ m_center.x + m_radius, m_center.y + m_radius }
 		);
 	}
-
 private:
 	Point m_center;
 	double m_radius;
