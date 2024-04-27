@@ -13,7 +13,11 @@
 #include <math.h>
 #include <string>
 #include <sstream>
+#include <iostream>
+#include <memory>
 #include <iomanip>
+
+#include <vector>
 
 
 

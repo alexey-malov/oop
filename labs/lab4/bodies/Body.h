@@ -9,9 +9,10 @@ public:
 	double GetMass() const;
 	std::string ToString() const;
 
-	virtual ~CBody();
+	virtual ~CBody() = default;
 
 private:
+	// Приватный виртуальный метод AppendProperties можно переопределить в наследниках
 	virtual void AppendProperties(std::ostream& strm) const = 0;
 	double m_density;
 	std::string m_type;

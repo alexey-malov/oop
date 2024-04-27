@@ -22,8 +22,58 @@ struct Point
 
 void TestArrayOfUniquePtrs();
 
-void main()
+struct Logger
 {
+	string m_name;
+
+	Logger()
+	{
+		cout << "Logger::Logger()\n";
+
+	}
+
+	Logger(string name)
+		: m_name(move(name))
+	{
+		cout << "Logger::Logger(string name) with name " << m_name << "\n";
+	}
+	Logger(const Logger& l)
+		: m_name(l.m_name)
+	{
+		cout << "Logger::Logger(const Logger&) with name " << m_name << "\n";
+	}
+	Logger(Logger&& l)
+		: m_name(move(l.m_name))
+	{
+		cout << "Logger::Logger(Logger&&) with name " << m_name << "\n";
+	}
+	~Logger()
+	{
+		cout << "Logger::~Logger() with name " << m_name << "\n";
+	}
+	Logger& operator=(const Logger& l)
+	{
+		m_name = l.m_name;
+		cout << "Logger::operator=(const Logger&) with name " << m_name << "\n";
+		return *this;
+	}
+	Logger& operator=(Logger&& l)
+	{
+		m_name = move(l.m_name);
+		cout << "Logger::operator=(Logger&&) with name " << m_name << "\n";
+	}
+};
+
+void TestUniquePtr()
+{
+	auto logger = std::make_unique<Logger>("logger 1");
+	std::cout << "deleting" << std::endl;
+	auto logger1 = std::move(logger);
+}
+
+int main()
+{
+	TestUniquePtr();
 	// создание одиночного объекта в куче
 	{
 		// создание целого числа 42 в куче с оборачиванием в unique_ptr
@@ -104,41 +154,6 @@ vector<unique_ptr<Point>> GetPoints()
 	// в приёмник, который примет результат функции
 	return points;
 }
-
-struct Logger
-{
-	string m_name;
-	Logger(string name)
-		: m_name(move(name))
-	{
-		cout << "Logger::Logger(string name) with name " << m_name << "\n";
-	}
-	Logger(const Logger& l)
-		: m_name(l.m_name)
-	{
-		cout << "Logger::Logger(const Logger&) with name " << m_name << "\n";
-	}
-	Logger(Logger&& l)
-		: m_name(move(l.m_name))
-	{
-		cout << "Logger::Logger(Logger&&) with name " << m_name << "\n";
-	}
-	~Logger()
-	{
-		cout << "Logger::~Logger() with name " << m_name << "\n";
-	}
-	Logger& operator=(const Logger& l)
-	{
-		m_name = l.m_name;
-		cout << "Logger::operator=(const Logger&) with name " << m_name << "\n";
-		return *this;
-	}
-	Logger& operator=(Logger&& l)
-	{
-		m_name = move(l.m_name);
-		cout << "Logger::operator=(Logger&&) with name " << m_name << "\n";
-	}
-};
 
 void TestArrayOfUniquePtrs()
 {

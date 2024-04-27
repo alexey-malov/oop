@@ -10,6 +10,7 @@ public:
 	double GetVolume() const override;
 
 private:
+	// Переопределяем AppendProperties, чтобы добавить информацию о сфере.
 	void AppendProperties(std::ostream& strm) const override;
 	double m_radius;
 };

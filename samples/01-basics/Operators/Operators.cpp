@@ -55,7 +55,6 @@ void LeapYear()
 		std::cout << year << " is not a leap year\n";
 }
 
-//void NumberOfOnes() 
 int main()
 {
 	/*
@@ -80,10 +79,3 @@ int main()
 	std::cout << "Decimal notation of " << number << " contains " << ones << " 1s\n";
 }
 
-int main()
-{
-	NumberOfOnes();
-	LeapYear();
-	ComparisonOperatorsTest();
-	ArithmeticOperatorsTest();
-}

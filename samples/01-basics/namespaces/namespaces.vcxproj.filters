@@ -18,8 +18,5 @@
     <ClCompile Include="namespaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sandbox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

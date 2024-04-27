@@ -28,5 +28,4 @@ int Example2(int x, int y)
 
 int main()
 {
-	DoSomeInternalTask();
 }
