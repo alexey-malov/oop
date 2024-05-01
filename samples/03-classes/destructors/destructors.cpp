@@ -20,6 +20,7 @@ public:
 	{
 		if (m_chars != s_emptyString)
 		{
+			std::destroy_n(m_chars, m_size + 1);
 			Deallocate(m_chars);
 		}
 	}
@@ -34,7 +35,7 @@ private:
 		operator delete(buffer);
 	}
 
-	inline static char* s_emptyString = { '\0' };
+	inline static char s_emptyString[] = { '\0' };
 
 	size_t m_size = 0;
 	size_t m_capacity = 0;

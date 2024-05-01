@@ -1,8 +1,11 @@
-﻿// copying.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// assignment.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
+#include <memory>
 #include <string>
+#include <utility>
+#include <cassert>
 
 class PostCard
 {
@@ -18,6 +21,14 @@ public:
 	{
 		std::cout << "Post card is copied: " << m_text << std::endl;
 	}
+
+	PostCard& operator=(const PostCard& other)
+	{
+		std::cout << "Post card " << m_text << " is assigned value " << other.m_text << std::endl;
+		m_text = other.m_text;
+		return *this;
+	}
+
 	~PostCard() { std::cout << "Post card was destroyed: " << m_text << std::endl; }
 
 	const std::string& GetText() const { return m_text; }
@@ -27,26 +38,6 @@ public:
 private:
 	std::string m_text;
 };
-
-PostCard MakeModifiedPostCard(PostCard postCard) {
-	std::cout << "Enter MakeModifiedPostCard" << std::endl;
-	postCard.SetText(postCard.GetText() + " - modified");
-	std::cout << "Exit MakeModifiedPostCard" << std::endl;
-	return postCard;
-}
-
-struct Envelope
-{
-	PostCard postCard;
-};
-
-Envelope MakeModifiedPostcardInEnvelope(Envelope envelope)
-{
-	std::cout << "Enter MakeModifiedPostCard" << std::endl;
-	envelope.postCard.SetText(envelope.postCard.GetText() + " - modified");
-	std::cout << "Exit MakeModifiedPostCard" << std::endl;
-	return envelope;
-}
 
 class String
 {
@@ -63,12 +54,34 @@ public:
 		std::uninitialized_copy_n(text, m_size + 1, m_chars);
 	}
 	String(const String& other)
-		: m_size{other.m_size}
-		, m_capacity{other.m_capacity}
+		: m_size{ other.m_size }
+		, m_capacity{ other.m_capacity }
 		, m_chars{ Allocate(m_capacity + 1) }
 	{
 		std::uninitialized_copy_n(other.m_chars, m_size + 1, m_chars);
 	}
+	String& operator=(const String& other)
+	{
+		if (this != &other)
+		{
+			if (m_capacity >= other.m_size && m_chars != s_emptyString)
+			{
+				std::destroy_n(m_chars, m_size + 1);
+				std::uninitialized_copy_n(other.m_chars, m_size + 1, m_chars);
+				m_size = other.m_size;
+			}
+			else
+			{
+				// Используем идиому copy-and-swap
+				String copy{ other };
+				std::swap(m_size, copy.m_size);
+				std::swap(m_capacity, copy.m_capacity);
+				std::swap(m_chars, copy.m_chars);
+			}
+		}
+		return *this;
+	}
+
 	~String()
 	{
 		if (m_chars != s_emptyString)
@@ -95,23 +108,15 @@ private:
 	char* m_chars;
 };
 
+struct Envelope
+{
+	PostCard postCard;
+};
+
 int main()
 {
-	using namespace std::literals;
-#if 0
-	PostCard postCard{ "Hello" };
-	auto modifiedPostCard = MakeModifiedPostCard(postCard);
-	std::cout << modifiedPostCard.GetText() << std::endl;
-#endif
-
-#if 0
-	auto modifiedPostCard = MakeModifiedPostCard("Hello"s);
-	std::cout << modifiedPostCard.GetText() << std::endl;
-#endif
-
-#if 0
-	Envelope env{.postCard = "Hello" };
-	auto modifiedEnv = MakeModifiedPostcardInEnvelope(env);
-	std::cout << modifiedEnv.postCard.GetText() << std::endl;
-#endif
+	Envelope env1{ .postCard = "Hello" };
+	Envelope env2{ .postCard = "world" };
+	env1 = env2;
+	std::cout << env1.postCard.GetText() << std::endl;
 }
