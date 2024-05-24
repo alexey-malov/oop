@@ -3,6 +3,70 @@
 
 #include <iostream>
 
+class Base
+{
+public:
+	Base(std::string const& message)
+		: m_message(message)
+	{
+	}
+	std::string GetMessage() const
+	{
+		return m_message;
+	}
+	virtual void PrintInfo() const
+	{
+		std::cout << "Base exception: "
+				  << m_message << "\n";
+	}
+	virtual ~Base() = default;
+
+private:
+	std::string m_message;
+};
+
+class Derived : public Base
+{
+public:
+	Derived(std::string const& message)
+		: Base(message)
+	{
+	}
+	void PrintInfo() const override
+	{
+		std::cout << "Derived exception: "
+				  << GetMessage() << "\n";
+	}
+};
+
+void PrintInfo(Base base)
+{
+	base.PrintInfo();
+}
+
+int main(int argc, char* argv[])
+{
+	Derived d{ "SomeInfo" };
+	PrintInfo(d);
+
+	try
+	{
+		Derived error("SomeInfo");
+		error.PrintInfo();
+		throw error;
+	}
+	// Выброшенное исключение типа CDerived
+	// превратится в CBase
+	catch (Base e)
+	{
+		e.PrintInfo();
+	}
+
+	return 0;
+}
+
+
+#if 0
 class Rational
 {
 public:
@@ -81,13 +145,4 @@ int main()
 }
 #endif
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started:
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+#endif
