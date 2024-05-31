@@ -20,3 +20,18 @@ class Rational {
 class Polygon {
     std::vector<Point> m_vertices;
 };
+
+// Класс Point не предназначен для наследования
+class Point final {
+    ...
+};
+
+// Класс Circle — конечный класс иерархии фигур.
+class Circle final : public Shape {
+};
+
+
+
+class ColoredShape : public Shape {
+
+}
