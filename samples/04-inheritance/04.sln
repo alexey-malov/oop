@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "interfaces", "interfaces\in
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "virtual_inheritance", "virtual_inheritance\virtual_inheritance.vcxproj", "{9B9687D2-FCFB-4B4D-8DC0-50FB0B1B1FF2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "destructor-types", "destructor-types\destructor-types.vcxproj", "{DC644DC2-7BFF-4743-A66E-044F6D10461A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -85,6 +87,14 @@ Global
 		{9B9687D2-FCFB-4B4D-8DC0-50FB0B1B1FF2}.Release|Win32.Build.0 = Release|Win32
 		{9B9687D2-FCFB-4B4D-8DC0-50FB0B1B1FF2}.Release|x64.ActiveCfg = Release|x64
 		{9B9687D2-FCFB-4B4D-8DC0-50FB0B1B1FF2}.Release|x64.Build.0 = Release|x64
+		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Debug|Win32.Build.0 = Debug|Win32
+		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Debug|x64.ActiveCfg = Debug|x64
+		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Debug|x64.Build.0 = Debug|x64
+		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Release|Win32.ActiveCfg = Release|Win32
+		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Release|Win32.Build.0 = Release|Win32
+		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Release|x64.ActiveCfg = Release|x64
+		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
