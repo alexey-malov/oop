@@ -259,7 +259,7 @@ class CStudentImpl : public CPersonImpl<Base>
 С использованием данных реализаций строятся прочие классы, например:
 
 ```c++
-class CWorker : public CPersonImpl<IPerson
+class CWorker : public CPersonImpl<IWorker>
 {
     //...
 }
