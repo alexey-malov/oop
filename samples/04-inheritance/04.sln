@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "virtual_inheritance", "virt
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "destructor-types", "destructor-types\destructor-types.vcxproj", "{DC644DC2-7BFF-4743-A66E-044F6D10461A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "virtual_methods_in_ctor_and_dtor", "virtual_methods_in_ctor_and_dtor\virtual_methods_in_ctor_and_dtor.vcxproj", "{1C2BC3A6-304C-4F46-AF29-25A4B088CC55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -95,6 +97,14 @@ Global
 		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Release|Win32.Build.0 = Release|Win32
 		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Release|x64.ActiveCfg = Release|x64
 		{DC644DC2-7BFF-4743-A66E-044F6D10461A}.Release|x64.Build.0 = Release|x64
+		{1C2BC3A6-304C-4F46-AF29-25A4B088CC55}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1C2BC3A6-304C-4F46-AF29-25A4B088CC55}.Debug|Win32.Build.0 = Debug|Win32
+		{1C2BC3A6-304C-4F46-AF29-25A4B088CC55}.Debug|x64.ActiveCfg = Debug|x64
+		{1C2BC3A6-304C-4F46-AF29-25A4B088CC55}.Debug|x64.Build.0 = Debug|x64
+		{1C2BC3A6-304C-4F46-AF29-25A4B088CC55}.Release|Win32.ActiveCfg = Release|Win32
+		{1C2BC3A6-304C-4F46-AF29-25A4B088CC55}.Release|Win32.Build.0 = Release|Win32
+		{1C2BC3A6-304C-4F46-AF29-25A4B088CC55}.Release|x64.ActiveCfg = Release|x64
+		{1C2BC3A6-304C-4F46-AF29-25A4B088CC55}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
