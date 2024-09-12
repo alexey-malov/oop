@@ -1,8 +1,11 @@
 {
+    "MD033": {"allowed_elements": [
+        "a", "span", "table", "thead", "tr", "th", "td", "tbody", "br"]},
+    "MD013": false,
     "no-duplicate-heading": {
-         "siblings_only":true
-    },
-    "line-length":{
-        "line_length": 120
-    }
+        "siblings_only":true
+   },
+   "line-length":{
+       "line_length": 120
+   }
 }
