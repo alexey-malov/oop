@@ -354,6 +354,207 @@ Channel is: 1
 35 – Русский экстрим
 ```
 
+###### Формат входных данных
+
+Синтаксис команды `SetChannelName`:
+
+```txt
+SetChannelName НОМЕР_КАНАЛА ИМЯ_КАНАЛА
+```
+
+Синтаксис команды `DeleteChannelName`:
+
+```txt
+DeleteChannelName ИМЯ_КАНАЛА
+```
+
+Синтаксис команды `SelectChannel` (по имени):
+
+```txt
+SelectChannel ИМЯ_КАНАЛА
+```
+
+Синтаксис команды `GetChannelName`:
+
+```txt
+GetChannelName НОМЕР_КАНАЛА
+```
+
+Синтаксис команды `GetChannelByName`:
+
+```txt
+GetChannelByName ИМЯ_КАНАЛА
+```
+
+###### Формат выходных данных
+
+- Команда `SetChannelName`:
+
+Если имя канала успешно установлено, выводится:
+
+```txt
+Channel name set: <номер канала> – <имя канала>
+```
+
+- Команда `DeleteChannelName`:
+
+Если имя канала успешно удалено, выводится:
+
+```txt
+Channel name deleted: <имя канала>
+```
+
+- Команда `SelectChannel` (по имени):
+
+Если переключение на канал по имени выполнено успешно, выводится:
+
+```txt
+Channel switched to: <имя канала>
+```
+
+- Команда `GetChannelName`:
+
+Если имя канала по заданному номеру существует, выводится:
+
+```txt
+Channel <номер канала> name: <имя канала>
+```
+
+- Команда `GetChannelByName`:
+
+Если канал с заданным именем существует, выводится:
+
+```txt
+Channel for name <имя канала>: <номер канала>
+```
+
+- Команда `Info` (обновленный формат):
+
+Если телевизор включен и существуют ассоциации каналов с именами, они выводятся после информации о текущем состоянии:
+
+```txt
+TV is turned on
+Channel is: <номер канала>
+<список каналов с именами>
+```
+
+Если каналов с именами нет, выводится только текущий канал:
+
+```txt
+TV is turned on
+Channel is: <номер канала>
+```
+
+Если телевизор выключен, выводится:
+
+```txt
+TV is turned off
+```
+
+- Ошибки:
+
+Если команда не может быть выполнена (например, из-за некорректного ввода,
+попытки установить имя для недопустимого канала или попытки удалить несуществующее имя), выводится:
+
+```txt
+ERROR
+```
+
+**Пример 1**:
+
+Ввод:
+
+```txt
+TurnOn
+SetChannelName 5 OTP
+SelectChannel OTP
+Info
+```
+
+Вывод:
+
+```txt
+TV is turned on
+Channel name set: 5 - OTP
+Channel switched to: OTP
+TV is turned on
+Channel is: 5
+5 - OTP
+```
+
+Объяснение: Телевизор включается, устанавливается имя "OTP" для канала 5,
+переключение происходит на "OTP", и команда Info показывает текущий канал 5, а также все каналы с их именами.
+
+**Пример 2**:
+
+Ввод:
+
+```txt
+TurnOn
+SetChannelName 3 MTV
+GetChannelByName MTV
+Info
+DeleteChannelName MTV
+GetChannelByName MTV
+Info
+```
+
+Вывод:
+
+```txt
+TV is turned on
+Channel name set: 3 - MTV
+Channel for name MTV: 3
+TV is turned on
+Channel is: 1
+3 - MTV
+Channel name deleted: MTV
+ERROR
+TV is turned on
+Channel is: 1
+```
+
+Объяснение: Телевизор включается, устанавливается имя "MTV" для канала 3,
+и команда GetChannelByName возвращает номер канала 3.
+Команда Info показывает текущий канал 1 и имя "MTV" для канала 3.
+Затем имя "MTV" удаляется, и повторная попытка получить его номер приводит к ошибке.
+Последняя команда Info показывает, что текущее состояние канала - 1, а имени для канала 3 больше нет.
+
+**Пример 3**:
+
+Ввод:
+
+```txt
+TurnOn
+SetChannelName 7 National Geographic
+SetChannelName 10 BBC
+GetChannelName 7
+GetChannelName 10
+GetChannelByName National Geographic
+GetChannelByName BBC
+Info
+```
+
+Вывод:
+
+```txt
+TV is turned on
+Channel name set: 7 - National Geographic
+Channel name set: 10 - BBC
+Channel 7 name: National Geographic
+Channel 10 name: BBC
+Channel for name National Geographic: 7
+Channel for name BBC: 10
+TV is turned on
+Channel is: 1
+7 - National Geographic
+10 - BBC
+```
+
+Объяснение: Телевизор включается, устанавливаются имена "National Geographic" для канала 7 и "BBC" для канала 10.
+Команды GetChannelName и GetChannelByName возвращают правильные имена и номера каналов.
+Команда Info показывает текущий канал 1 и все каналы с их именами.
+
 #### Вариант 2 – Автомобиль – 140 баллов
 
 Разработать класс `Car`, моделирующий автомобиль в следующей предметной области. Для разработанного класса должны быть также разработаны модульные тесты.
