@@ -17,8 +17,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "template_operator", "templa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "template_method", "template_method\template_method.vcxproj", "{E5D052EA-8080-4145-9C05-5CE1F7747157}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Countable", "Countable\Countable.vcxproj", "{D3E78DC0-D459-42C1-9142-8BA14567281D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -79,14 +77,6 @@ Global
 		{E5D052EA-8080-4145-9C05-5CE1F7747157}.Release|Win32.Build.0 = Release|Win32
 		{E5D052EA-8080-4145-9C05-5CE1F7747157}.Release|x64.ActiveCfg = Release|x64
 		{E5D052EA-8080-4145-9C05-5CE1F7747157}.Release|x64.Build.0 = Release|x64
-		{D3E78DC0-D459-42C1-9142-8BA14567281D}.Debug|Win32.ActiveCfg = Debug|Win32
-		{D3E78DC0-D459-42C1-9142-8BA14567281D}.Debug|Win32.Build.0 = Debug|Win32
-		{D3E78DC0-D459-42C1-9142-8BA14567281D}.Debug|x64.ActiveCfg = Debug|x64
-		{D3E78DC0-D459-42C1-9142-8BA14567281D}.Debug|x64.Build.0 = Debug|x64
-		{D3E78DC0-D459-42C1-9142-8BA14567281D}.Release|Win32.ActiveCfg = Release|Win32
-		{D3E78DC0-D459-42C1-9142-8BA14567281D}.Release|Win32.Build.0 = Release|Win32
-		{D3E78DC0-D459-42C1-9142-8BA14567281D}.Release|x64.ActiveCfg = Release|x64
-		{D3E78DC0-D459-42C1-9142-8BA14567281D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
