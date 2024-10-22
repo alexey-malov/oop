@@ -859,6 +859,8 @@ std::string ExpandTemplate(std::string const& tpl, std::map<std::string, std::st
 - **`<key>`** - строка-параметр (может содержать пробелы и спецсимволы)
 - **`<value>`** - значение для подстановки
 
+3. Ввод параметров должен прерываться на пустой строке
+
 При работе через командную строку:
 ```sh
 expand_template.exe <input-file> <output-file> [<param> <value> [<param> <value> ...]]
