@@ -968,7 +968,7 @@ labyrinth.exe <input file> <output file>
 ![labyrinth-example-1](images/labyrinth-example-1.png)
 
 ![labyrinth-example-2](images/labyrinth-example-2.png)
- 
+
 Для поиска кратчайшего пути можно использовать, например, [Волновой Алгоритм](https://ru.wikipedia.org/wiki/Алгоритм_Ли).
 
 В комплекте с программой должны обязательно поставляться файлы, позволяющие проверить ее работу в автоматическом режиме.
