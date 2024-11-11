@@ -651,7 +651,6 @@ void FillRectangle(CRectangle const& rect, char code, CCanvas & canvas);
   Присваивает **переменной** с именем *<идентификатор1>* числовое значение, либо **текущее значение ранее объявленного**
    идентификатора с именем *<идентификатор2>*. Если переменная с именем *<идентификатор1>* не была ранее объявлена,
    происходит объявление новой переменной. В качестве *<идентификатора1>* не может выступать имя функции.
-.
 - `fn <идентификатор1> = <идентификатор2>` либо
 
   `fn <идентификатор1> = <идентификатор2><операция><идентификатор3>`
@@ -671,7 +670,7 @@ void FillRectangle(CRectangle const& rect, char code, CCanvas & canvas);
   Выводит в `stdout` значение **ранее объявленного** идентификатора. Если идентификатором являлась переменная, то
   выводится ее значение, а если функция, то выводится вычисленное значение функции. **Значение идентификатора
   выводится с точностью в 2 знака** после запятой. В случае, когда значение идентификатора не определено, должно быть
-  выведено **nan**..
+  выведено **nan**.
 - `printvars`
 
   Выводит в `stdout` имена и значения всех ранее объявленных переменных, **отсортированных по алфавиту**, по одному в
@@ -714,8 +713,8 @@ void FillRectangle(CRectangle const& rect, char code, CCanvas & canvas);
 
 #### Тестирование программы в системе Яндекс.Contest
 
-Для корректного тестирования программы в системе Яндекс.Contest необходимо заархивировать файлы программы в **формат ZIP** и загрузить архив в систему Яндекс.Contest,
-**даже если решение состоит всего из одного файла**
+Для корректного тестирования программы в системе Яндекс.Contest необходимо заархивировать файлы программы в **формат ZIP**
+ и загрузить архив в систему Яндекс.Contest, **даже если решение состоит всего из одного файла**
 
 #### Примеры работы программы
 
@@ -731,50 +730,50 @@ void FillRectangle(CRectangle const& rect, char code, CCanvas & canvas);
      </thead>
      <tbody>
           <tr>
-               <th>var x</th>
-               <th></th>
-               <th></th>
+               <td>var x</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>print x</th>
-               <th>nan</th>
-               <th>Значение переменной x пока не определено</th>
+               <td>print x</td>
+               <td>nan</td>
+               <td>Значение переменной x пока не определено</td>
           </tr>
           <tr>
-               <th>let x=42</th>
-               <th></th>
-               <th>Присваиваем переменной x значение 42</th>
+               <td>let x=42</td>
+               <td></td>
+               <td>Присваиваем переменной x значение 42</td>
           </tr>
           <tr>
-               <th>print x</th>
-               <th>42.00</th>
-               <th></th>
+               <td>print x</td>
+               <td>42.00</td>
+               <td></td>
           </tr>
           <tr>
-               <th>let x=1.234</th>
-               <th></th>
-               <th>Значение переменной можно изменить</th>
+               <td>let x=1.234</td>
+               <td></td>
+               <td>Значение переменной можно изменить</td>
           </tr>
           <tr>
-               <th>print x</th>
-               <th>1.23</th>
-               <th>Значение выводится с точностью 2 знака после запятой</th>
+               <td>print x</td>
+               <td>1.23</td>
+               <td>Значение выводится с точностью 2 знака после запятой</td>
           </tr>
           <tr>
-               <th>let y=x</th>
-               <th></th>
-               <th>Автоматически объявляем переменную y и присваиваем ей текущее значение x</th>
+               <td>let y=x</td>
+               <td></td>
+               <td>Автоматически объявляем переменную y и присваиваем ей текущее значение x</td>
           </tr>
           <tr>
-               <th>let x=99</th>
-               <th></th>
-               <th></th>
+               <td>let x=99</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>printvars</th>
-               <th>x:99.00
-                   <br>y:1.23</th>
-               <th>Переменная y хранит присвоенное ей значение x. Последующие манипуляции над x не оказывают на нее влияния.</th>
+               <td>printvars</td>
+               <td>x:99.00
+                   <br>y:1.23</td>
+               <td>Переменная y хранит присвоенное ей значение x. Последующие манипуляции над x не оказывают на нее влияния.</td>
           </tr>
      </tbody>
 </table>
@@ -791,65 +790,65 @@ void FillRectangle(CRectangle const& rect, char code, CCanvas & canvas);
      </thead>
      <tbody>
           <tr>
-               <th>var x</th>
-               <th></th>
-               <th></th>
+               <td>var x</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>var y</th>
-               <th></th>
-               <th></th>
+               <td>var y</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn XPlusY=x+y</th>
-               <th></th>
-               <th></th>
+               <td>fn XPlusY=x+y</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>print XPlusY</th>
-               <th>nan</th>
-               <th>Значение функции не определено, т.к. не определены значения ее аргументов</th>
+               <td>print XPlusY</td>
+               <td>nan</td>
+               <td>Значение функции не определено, т.к. не определены значения ее аргументов</td>
           </tr>
           <tr>
-               <th>let x=3</th>
-               <th></th>
-               <th></th>
+               <td>let x=3</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>let y=4</th>
-               <th></th>
-               <th></th>
+               <td>let y=4</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>print XPlusY</th>
-               <th>7.00</th>
-               <th>Теперь значение функции определено</th>
+               <td>print XPlusY</td>
+               <td>7.00</td>
+               <td>Теперь значение функции определено</td>
           </tr>
           <tr>
-               <th>let x=10</th>
-               <th></th>
-               <th></th>
+               <td>let x=10</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>print XPlusY</th>
-               <th>14.00</th>
-               <th>Значение функции зависит от значений ее аргументов</th>
+               <td>print XPlusY</td>
+               <td>14.00</td>
+               <td>Значение функции зависит от значений ее аргументов</td>
           </tr>
           <tr>
-               <th>let z=3.5</th>
-               <th></th>
-               <th></th>
+               <td>let z=3.5</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn XPlusYDivZ=XPlusY/z</th>
-               <th></th>
-               <th>Значение функции может зависеть не только от значений переменных, но и от значений других функций</th>
+               <td>fn XPlusYDivZ=XPlusY/z</td>
+               <td></td>
+               <td>Значение функции может зависеть не только от значений переменных, но и от значений других функций</td>
           </tr>
           <tr>
-               <th>printfns</th>
-               <th>XPlusY:14.00
-                   <br>XPlusYDivZ:4.00</th>
-               <th>Значения функций выводятся в алфавитном порядке</th>
+               <td>printfns</td>
+               <td>XPlusY:14.00
+                   <br>XPlusYDivZ:4.00</td>
+               <td>Значения функций выводятся в алфавитном порядке</td>
           </tr>
      </tbody>
 </table>
@@ -866,34 +865,34 @@ void FillRectangle(CRectangle const& rect, char code, CCanvas & canvas);
      </thead>
      <tbody>
           <tr>
-               <th>let v=42</th>
-               <th></th>
-               <th></th>
+               <td>let v=42</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>let variable=v</th>
-               <th></th>
-               <th>variable хранит значение v (42)</th>
+               <td>let variable=v</td>
+               <td></td>
+               <td>variable хранит значение v (42)</td>
           </tr>
           <tr>
-               <th>fn function=v</th>
-               <th></th>
-               <th>function хранит действие, которое будет вычислено при получении значения функции</th>
+               <td>fn function=v</td>
+               <td></td>
+               <td>function хранит действие, которое будет вычислено при получении значения функции</td>
           </tr>
           <tr>
-               <th>let v=43</th>
-               <th></th>
-               <th></th>
+               <td>let v=43</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>print variable</th>
-               <th>42.00</th>
-               <th></th>
+               <td>print variable</td>
+               <td>42.00</td>
+               <td></td>
           </tr>
           <tr>
-               <th>print function</th>
-               <th>43.00</th>
-               <th>Значением function будет значение переменной v, вычисленное в момент вызова функции (а не ее объявления)</th>
+               <td>print function</td>
+               <td>43.00</td>
+               <td>Значением function будет значение переменной v, вычисленное в момент вызова функции (а не ее объявления)</td>
           </tr>
      </tbody>
 </table>
@@ -910,63 +909,63 @@ void FillRectangle(CRectangle const& rect, char code, CCanvas & canvas);
      </thead>
      <tbody>
           <tr>
-               <th>var radius</th>
-               <th></th>
-               <th></th>
+               <td>var radius</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>let pi=3.14159265</th>
-               <th></th>
-               <th></th>
+               <td>let pi=3.14159265</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn radiusSquared=radius*radius</th>
-               <th></th>
-               <th></th>
+               <td>fn radiusSquared=radius*radius</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn circleArea=pi*radiusSquared</th>
-               <th></th>
-               <th></th>
+               <td>fn circleArea=pi*radiusSquared</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>let radius=10</th>
-               <th></th>
-               <th></th>
+               <td>let radius=10</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>print circleArea</th>
-               <th>314.16</th>
-               <th></th>
+               <td>print circleArea</td>
+               <td>314.16</td>
+               <td></td>
           </tr>
           <tr>
-               <th>let circle10Area=circleArea</th>
-               <th></th>
-               <th>circle10Area хранит значение функции circleArea, вычисленной при radius=10</th>
+               <td>let circle10Area=circleArea</td>
+               <td></td>
+               <td>circle10Area хранит значение функции circleArea, вычисленной при radius=10</td>
           </tr>
           <tr>
-               <th>let radius=20</th>
-               <th></th>
-               <th></th>
+               <td>let radius=20</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>let circle20Area=circleArea</th>
-               <th></th>
-               <th>circle20Area хранит значение функции circleArea, вычисленной при radius=20</th>
+               <td>let circle20Area=circleArea</td>
+               <td></td>
+               <td>circle20Area хранит значение функции circleArea, вычисленной при radius=20</td>
           </tr>
           <tr>
-               <th>printfns</th>
-               <th>circleArea:1256.64
-                   <br>radiusSquared:400.00</th>
-               <th></th>
+               <td>printfns</td>
+               <td>circleArea:1256.64
+                   <br>radiusSquared:400.00</td>
+               <td></td>
           </tr>
           <tr>
-               <th>printvars</th>
-               <th>circle10Area:314.16
+               <td>printvars</td>
+               <td>circle10Area:314.16
                    <br>circle20Area:1256.64
                    <br>pi:3.14
-                   <br>radius:20.00</th>
-               <th></th>
+                   <br>radius:20.00</td>
+               <td></td>
           </tr>
      </tbody>
 </table>
@@ -983,81 +982,81 @@ void FillRectangle(CRectangle const& rect, char code, CCanvas & canvas);
      </thead>
      <tbody>
            <tr>
-               <th>let v0=0</th>
-               <th></th>
-               <th></th>
+               <td>let v0=0</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>let v1=1</th>
-               <th></th>
-               <th></th>
+               <td>let v1=1</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn fib0=v0</th>
-               <th></th>
-               <th></th>
+               <td>fn fib0=v0</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn fib1=v1</th>
-               <th></th>
-               <th></th>
+               <td>fn fib1=v1</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn fib2=fib1+fib0</th>
-               <th></th>
-               <th></th>
+               <td>fn fib2=fib1+fib0</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn fib3=fib2+fib1</th>
-               <th></th>
-               <th></th>
+               <td>fn fib3=fib2+fib1</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn fib4=fib3+fib2</th>
-               <th></th>
-               <th></th>
+               <td>fn fib4=fib3+fib2</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn fib5=fib4+fib3</th>
-               <th></th>
-               <th></th>
+               <td>fn fib5=fib4+fib3</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>fn fib6=fib5+fib4</th>
-               <th></th>
-               <th></th>
+               <td>fn fib6=fib5+fib4</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>printfns</th>
-               <th>fib0:0.00
+               <td>printfns</td>
+               <td>fib0:0.00
                    <br>fib1:1.00
                    <br>fib2:1.00
                    <br>fib3:2.00
                    <br>fib4:3.00
                    <br>fib5:5.00
-                   <br>fib6:8.00</th>
-               <th></th>
+                   <br>fib6:8.00</td>
+               <td></td>
           </tr>
           <tr>
-               <th>let v0=1</th>
-               <th></th>
-               <th></th>
+               <td>let v0=1</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>let v1=1</th>
-               <th></th>
-               <th></th>
+               <td>let v1=1</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>printfns</th>
-               <th>fib0:1.00
+               <td>printfns</td>
+               <td>fib0:1.00
                    <br>fib1:1.00
                    <br>fib2:2.00
                    <br>fib3:3.00
                    <br>fib4:5.00
                    <br>fib5:8.00
-                   <br>fib6:13.00</th>
-               <th></th>
+                   <br>fib6:13.00</td>
+               <td></td>
           </tr>
      </tbody>
 </table>
@@ -1074,31 +1073,33 @@ void FillRectangle(CRectangle const& rect, char code, CCanvas & canvas);
      </thead>
      <tbody>
           <tr>
-               <th>let a=1000000....00</th>
-               <th></th>
-               <th>Присваиваем переменной большое значение, но не превышающее максимальное</th>
+               <td>let a=1000000....00</td>
+               <td></td>
+               <td>Присваиваем переменной большое значение, но не превышающее максимальное</td>
           </tr>
           <tr>
-               <th>fn x=a*a</th>
-               <th></th>
-               <th>Хотя вычисление a*a вызовет переполнение, при объявлении функции сообщение о переполнении выводиться не должно</th>
+               <td>fn x=a*a</td>
+               <td></td>
+               <td>Хотя вычисление a*a вызовет переполнение,
+               при объявлении функции сообщение о переполнении выводиться не должно
+               </td>
           </tr>
           <tr>
-               <th>print x</th>
-               <th>Calculation overflow</th>
-               <th>Сообщение о переполнении появляется только в момент вычисления значения функции</th>
+               <td>print x</td>
+               <td>Calculation overflow</td>
+               <td>Сообщение о переполнении появляется только в момент вычисления значения функции</td>
           </tr>
           <tr>
-               <th>let a=5</th>
-               <th></th>
-               <th></th>
+               <td>let a=5</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>print x</th>
-               <th>25.00</th>
-               <th>После присвоения переменной нормального значения переполнение не происходит<br>
+               <td>print x</td>
+               <td>25.00</td>
+               <td>После присвоения переменной нормального значения переполнение не происходит<br>
                и print выводит значение функции
-               </th>
+               </td>
           </tr>
      </tbody>
 </table>
@@ -1128,30 +1129,30 @@ void FillRectangle(CRectangle const& rect, char code, CCanvas & canvas);
      </thead>
      <tbody>
           <tr>
-               <th>let x=1
+               <td>let x=1
                    <br>fn x2=x+x
                    <br>fn x3=x2+x
                    <br>fn x4=x3+x
                    <br>fn x5=x3+x
                    <br>…
-                   <br>fn x1000000=x999999+x</th>
-               <th></th>
-               <th>Объявляется большая последовательность функций, каждая из которых прибавляет x к значению предыдущей функции.</th>
+                   <br>fn x1000000=x999999+x</td>
+               <td></td>
+               <td>Объявляется большая последовательность функций, каждая из которых прибавляет x к значению предыдущей функции.</td>
           </tr>
           <tr>
-               <th>print x1000000</th>
-               <th>1000000.00</th>
-               <th>Наивное рекурсивное вычисление функции x1000000 может привести к переполнению стека.</th>
+               <td>print x1000000</td>
+               <td>1000000.00</td>
+               <td>Наивное рекурсивное вычисление функции x1000000 может привести к переполнению стека.</td>
           </tr>
           <tr>
-               <th>let x=2</th>
-               <th></th>
-               <th></th>
+               <td>let x=2</td>
+               <td></td>
+               <td></td>
           </tr>
           <tr>
-               <th>print x1000000</th>
-               <th>2000000.00</th>
-               <th></th>
+               <td>print x1000000</td>
+               <td>2000000.00</td>
+               <td></td>
           </tr>
      </tbody>
 </table>
