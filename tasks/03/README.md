@@ -609,7 +609,7 @@ EngineOff
 Вывод:
 
 ```txt
-Engine off: stop and set neutral
+Engine is off: stop and set neutral
 ```
 
 Объяснение: Включаем двигатель, включаем первую передачу и устанавливаем скорость 10.
