@@ -31,6 +31,13 @@ void StandardIO()
 	}
 }
 
+void ReadStrings()
+{
+	std::string phrase;
+	std::getline(std::cin, phrase); // Прочитает строку до символа конца строки
+	std::cout << phrase << std::endl;
+}
+
 #include <iomanip>
 
 void IOManip()
