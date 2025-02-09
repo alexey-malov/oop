@@ -156,7 +156,7 @@ void CallAddWords()
 * [ES.47 Используйте для указателей nullptr вместо 0 и NULL](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es47-use-nullptr-rather-than-0-or-null)
 * [F6. Если функции запрещено бросать исключения, помечайте её как noexcept](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f6-if-your-function-may-not-throw-declare-it-noexcept)
 * [C.128: Виртуальные функции должны быть помечены ровно одним из трёх слов: virtual, override или final](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#c128-virtual-functions-should-specify-exactly-one-of-virtual-override-or-final)
-* [Если захватываете this, то захватывайте переменные явно и не используйте default capture](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f54-if-you-capture-this-capture-all-variables-explicitly-no-default-capture)
+* [F.54 Если захватываете this или любое поле класса, то захватывайте явно и не используйте [=] default capture](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f54-when-writing-a-lambda-that-captures-this-or-any-class-data-member-dont-use--default-capture)
 
 # Изолируйте низкий уровень от высокого
 
