@@ -115,7 +115,7 @@ void CallAddWords()
 
 
 * [F.20: Для передачи результатов предпочитайте использовать возвращаемое значение, а не out-параметры](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f20-for-out-output-values-prefer-return-values-to-output-parameters)
-* [F.21: Вместо создания множества out-параметров старайтесь возвращать структуру или кортеж](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f21-to-return-multiple-out-values-prefer-returning-a-tuple-or-struct)
+* [F.21: Вместо создания множества out-параметров старайтесь возвращать структуру](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f21-to-return-multiple-out-values-prefer-returning-a-struct)
 
 Таблица типичных способов передачи параметров (из [F.15: Prefer simple and conventional ways of passing information ](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f15-prefer-simple-and-conventional-ways-of-passing-information)):
 
