@@ -40,6 +40,7 @@
 | константы и варианты enum        | bookCount, env               |               |
 | параметр template<>              | Callback, ArraySize          |               |
 | макрос                           | ISPRING_BRAND_NAME           | ISPRING_, IS_ |
+| неймспейс                        | hidden_tasks                 |               |
 | глобальная переменная            | оно тебе надо? g_cachedTypes | g_            |
 
 # Форматирование
