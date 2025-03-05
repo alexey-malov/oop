@@ -106,7 +106,7 @@ private:
 	int year, month, day;
 };
 
-// Реализация методов класса
+// Р РµР°Р»РёР·Р°С†РёСЏ РјРµС‚РѕРґРѕРІ РєР»Р°СЃСЃР°
 void Date::Print() const
 {
 	std::cout << day << "/" << month << "/" << year << "\n";
