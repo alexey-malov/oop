@@ -3,29 +3,56 @@
 
 #include <iostream>
 
-namespace
+namespace graphics
 {
-int Add1(int x, int y)
+namespace shapes
 {
-	return x + y;
-}
-} // namespace
 
-int Add2(int x, int y)
+struct Point
 {
-	return x + y;
-}
+	int x = 0;
+	int y = 0;
+};
 
-int Example1(int x, int y)
+void Print(Point p)
 {
-	return Add1(x, y);
+	std::cout << p.x << ", " << p.y << "\n";
 }
 
-int Example2(int x, int y)
+} // namespace shapes
+
+void Draw(shapes::Point p)
 {
-	return Add2(x, y);
+	// ...
+}
+
+} // namespace graphics
+
+namespace game::units
+{
+struct Monster
+{
+};
+} // namespace game::units
+
+void Test()
+{
+	using namespace game::units;
+	Monster m;
+}
+
+
+void Draw(graphics::shapes::Point p)
+{
+	// ...
 }
 
 int main()
 {
+	graphics::shapes::Point p{ 10, 20 };
+	Print(p); // Print будет найдена благодаря ADL
+	/*graphics::*/Draw(p); // Надо указать namespace, т.к. ADL не найдёт Draw
+
+	using graphics::shapes::Point;
+	Point p2; // Теперь можно не указывать полное имя для Point
 }

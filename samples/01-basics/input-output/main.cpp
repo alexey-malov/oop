@@ -34,8 +34,12 @@ void StandardIO()
 void ReadStrings()
 {
 	std::string phrase;
-	std::getline(std::cin, phrase); // Прочитает строку до символа конца строки
+	std::getline(std::cin, phrase); // Прочитать строку до символа конца строки
 	std::cout << phrase << std::endl;
+
+	std::string name, surname;
+	std::cin >> name >> surname; // Прочитать name и surname, разделённые пробелами
+	std::cout << name << ' ' << surname;
 }
 
 #include <iomanip>

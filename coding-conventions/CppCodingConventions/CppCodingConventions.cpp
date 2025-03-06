@@ -1,5 +1,23 @@
 ﻿#include "stdafx.h"
 
+// Анонимный неймспейс
+namespace
+{
+
+}
+
+// Неймспейс с названием `hidden_details`
+namespace hidden_details
+{
+
+}
+
+// Вложенный неймспейс
+namespace details::keys
+{
+
+}
+
 // Именование структур
 struct SomeStructName
 {
