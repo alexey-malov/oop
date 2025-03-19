@@ -1,8 +1,8 @@
-﻿#include <iostream>
-#include <string>
+﻿#include <cassert>
 #include <functional>
+#include <iostream>
 #include <memory>
-#include <cassert>
+#include <string>
 
 using namespace std;
 
@@ -28,12 +28,16 @@ void CaptureByValueEmulation()
 	// код, семантически эквивалентный следующему:
 	struct Fn
 	{
-		Fn(int x):x(x){}
+		Fn(int x)
+			: x(x)
+		{
+		}
 
-		void operator()()const
+		void operator()() const
 		{
 			cout << " x = " << x << endl;
 		}
+
 	private:
 		int x;
 	};
@@ -48,13 +52,13 @@ void CaptureByReference()
 {
 	cout << "Capture by reference" << endl;
 	int x = 42;
-	auto fn = [&] {
+	auto fn = [&x] {
 		// x захватывается по ссылке
 		cout << " x = " << x << endl;
 	};
-	fn();
+	fn(); // 42
 	x = 55;
-	fn();
+	fn(); // 55
 }
 
 void CaptureByReferenceEmulation()
@@ -66,14 +70,18 @@ void CaptureByReferenceEmulation()
 	// код, семантически эквивалентный следующему:
 	struct Fn
 	{
-		Fn(int & x) :x(x) {}
+		Fn(int& x)
+			: x(x)
+		{
+		}
 
-		void operator()()const
+		void operator()() const
 		{
 			cout << " x = " << x << endl;
 		}
+
 	private:
-		int & x;
+		int& x;
 	};
 
 	Fn fn(x);
@@ -86,14 +94,14 @@ void CaptureByValueInMutableLambda()
 {
 	cout << "Capture by value in mutable lambda" << endl;
 	int x = 42;
-	auto fn = [=] () mutable {
+	auto fn = [x]() mutable {
 		// x захватывается по значению (которое можно менять внутри лямбды)
 		x += 5;
 		cout << " x = " << x << endl;
 	};
-	fn();
+	fn(); // 47
 	x = 55; // внутри лямбды значение не изменится
-	fn();
+	fn(); // 52
 }
 
 void CaptureByValueInMutableLambdaEmulation()
@@ -105,7 +113,10 @@ void CaptureByValueInMutableLambdaEmulation()
 	// код, семантически эквивалентный следующему:
 	struct Fn
 	{
-		Fn(int x) :x(x) {}
+		Fn(int x)
+			: x(x)
+		{
+		}
 
 		void operator()() // в mutable-lambda оператор () не является константым
 		{
@@ -138,7 +149,7 @@ void WrongCaptureByReference()
 		lambda();
 	}
 	// если раскомментировать следующую строчку, то будет неопр. поведение
-	//fn(); 
+	// fn();
 }
 
 void CaptureBySharedValue()
@@ -158,19 +169,19 @@ void CaptureBySharedValue()
 		lambda();
 	} // строка при выходе из блока будет жить, т.к. на нее есть еще ссылка из лямбды
 	cout << "\nmsg is still alive" << endl;
-	// А вот так можно вызывать функцию, т.к. msg находится в куче и 
+	// А вот так можно вызывать функцию, т.к. msg находится в куче и
 	// управляется shared-указателем, захваченным в лямбде по значению
-	fn(); 
+	fn();
 }
 
 void CaptureWithMoving()
 {
 	cout << "Capture with moving value into lambda" << endl;
 	auto str = make_unique<string>("Hello");
-	
+
 	// В лямбда-выражение перемещается содержимое str, причем внутри
 	// лямбды к нему мы обращаемся по имени xyz
-	auto addSuffix = [xyz = move(str)] (const string& suffix) {
+	auto addSuffix = [xyz = move(str)](const string& suffix) {
 		*xyz += suffix;
 		cout << *xyz << endl;
 	};
@@ -187,7 +198,7 @@ void BorrowingLambda()
 	cout << "Lambda that borrows a value and then gives it back" << endl;
 	auto msg = make_unique<string>("Hello");
 
-	auto giveMeMyMessageBack = [msg = move(msg)] () mutable {
+	auto giveMeMyMessageBack = [msg = move(msg)]() mutable {
 		if (msg)
 		{
 			cout << "I have your string: '" << *msg << "'" << endl;
@@ -204,7 +215,7 @@ void BorrowingLambda()
 	assert(!msg);
 
 	msg = giveMeMyMessageBack();
-	
+
 	assert(msg);
 
 	cout << "Hey, a got my message back: '" << *msg << "', thanks!" << endl;
@@ -236,6 +247,16 @@ void RecursiveLambda()
 		return (x == 0) ? 1 : x * factorial(x - 1);
 	};
 	cout << "4! = " << factorial(4) << endl;
+}
+
+void LambdaSyntax()
+{
+	auto print = [](int num) {
+		std::cout << num << std::endl;
+	};
+
+	print(1);
+	print(42);
 }
 
 int main()
