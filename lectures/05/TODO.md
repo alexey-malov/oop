@@ -1,0 +1,1 @@
+Рассказать про std::system_error

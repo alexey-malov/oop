@@ -1,4 +1,4 @@
-﻿// type-aliases.h : Include file for standard system include files,
+﻿// references.h : Include file for standard system include files,
 // or project specific include files.
 
 #pragma once

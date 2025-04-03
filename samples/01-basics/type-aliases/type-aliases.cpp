@@ -1,11 +1,8 @@
-﻿// type-aliases.cpp : Defines the entry point for the application.
-//
-
-#include "type-aliases.h"
-#include <array>
+﻿#include <array>
+#include <cmath>
+#include <iostream>
+#include <numbers>
 #include <vector>
-
-using namespace std;
 
 // Так в языке C объявляли синонимы типов
 void TypeAliasInCStyle()
@@ -26,7 +23,7 @@ void PrintMatrix(const Matrix3x3d& m)
 		{
 			std::cout << item << " ";
 		}
-		std::cout << endl;
+		std::cout << std::endl;
 	}
 }
 
@@ -42,9 +39,35 @@ void PrintMatrix(const MatrixT<T, Rows, Columns>& m)
 		{
 			std::cout << item << " ";
 		}
-		std::cout << endl;
+		std::cout << std::endl;
 	}
 }
+
+// Теперь Real можно использовать для обозначения чисел с плавающей запятой
+typedef float Real;
+struct Vec3
+{
+	Real x = 0;
+	Real y = 0;
+	Real z = 0;
+};
+
+// Возвращает скалярное произведение 3D векторов
+auto DotProduct(const Vec3& a, const Vec3& b)
+{
+	return a.x * b.x + a.y * b.y + a.z * b.z;
+}
+
+auto GetLength(const Vec3& a) // Возвращает длину вектора
+{
+	return std::hypot(a.x, a.y, a.z);
+}
+
+auto GetAngle(const Vec3& a, const Vec3& b) // Возвращает угол в радианах между векторами
+{
+	return std::acos(DotProduct(a, b) / (GetLength(a) * GetLength(b)));
+}
+
 int main()
 {
 	Matrix3x3d m{ {
@@ -62,4 +85,6 @@ int main()
 		{ { 5, 6 } },
 	} };
 	PrintMatrix(m1);
+
+	std::cout << GetAngle({ 1, 0, 0 }, { 1, 1, 0 }) * 180 / std::numbers::pi << std::endl;
 }
