@@ -684,6 +684,17 @@ bool SetGear(int gear)
 bool SetSpeed(int speed) 
 ```
 
+Альтернативная реализация:
+
+```c++
+void TurnOnEngine()
+void TurnOffEngine()
+void SetGear(int gear)
+void SetSpeed(int speed)
+```
+
+Методы ничего не возвращают. При ошибке выкидывается исключение (`std::runtime_error`, `std::invalid_argument` и тд).
+
 На основе данного класса разработать приложение, позволяющее пользователю управлять виртуальным автомобилем при помощи
 следующих команд, вводимых со стандартного потока ввода:
 
