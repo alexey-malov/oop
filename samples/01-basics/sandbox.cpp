@@ -1,9 +1,41 @@
-// Возвращает копию строки str, в которой буквы приведены к нижнему регистру.
-// Например, ToLowercase("Hello"s) вернёт строку "hello".
-std::string ToLowercase(/* std::string */ str) {
-    for (char& ch : str) {
-        // Функция std::tolower приводит символ к нижнему регистру.
-        ch = static_cast<char>(std::tolower(static_cast<unsigned char>(ch)));
-    }
-    return str;
+#include <iostream>
+
+class IPlugin
+{
+public:
+	virtual ~IPlugin() = default;
+	// прочие методы
+};
+
+class IRenderable
+{
+public:
+	virtual ~IRenderable() = default;
+	virtual void Render() = 0;
+};
+
+class ConcretePlugin : public IPlugin
+	, public IRenderable
+{
+public:
+	void Render() override
+	{
+	}
+};
+
+void Process(IPlugin& plugin)
+{
+	// Если plugin поддерживает рендеринг, используем его
+	if (auto renderable = dynamic_cast<IRenderable*>(&plugin))
+	{
+		// Мы запросили интерфейс, а не конкретную реализацию
+		renderable->Render();
+	}
+	// проводим прочие операции над плагином
+}
+
+int main()
+{
+	ConcretePlugin plugin;
+	Process(plugin);
 }
