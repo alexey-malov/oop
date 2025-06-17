@@ -4,7 +4,39 @@
 #include <algorithm>
 #include <iostream>
 #include <memory>
+#include <string>
+#include <unordered_map>
 #include <vector>
+
+class SomeClass
+{
+public:
+	template <typename T>
+	void DoSomething(T value)
+	{
+		std::cout << "Value: " << value << "\n";
+	}
+};
+
+template <typename T>
+class SomeTemplateClass
+{
+public:
+	explicit SomeTemplateClass(T data)
+		: m_data(data)
+	{
+	}
+
+	template <typename U>
+	void DoSomething(U value)
+	{
+		std::cout << "Data: " << m_data
+				  << ", value: " << value << "\n";
+	}
+
+private:
+	T m_data;
+};
 
 struct AnyLess
 {
@@ -58,5 +90,8 @@ int main()
 	std::cout << text << std::endl;
 
 	auto ss = std::make_shared<std::string>(10, 'A');
-	std::cout << *ss;
+	std::cout << *ss << "\n";
+
+	SomeTemplateClass<int> cls{ 42 };
+	cls.DoSomething('A');
 }
