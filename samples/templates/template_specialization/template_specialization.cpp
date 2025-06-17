@@ -15,6 +15,9 @@ const char* Maximum<const char*>(const char* a, const char* b)
 	return (std::strcmp(a, b) > 0) ? a : b;
 }
 
+
+
+
 int main()
 {
 	std::cout << Maximum(1, 2) << "\n";
