@@ -1,6 +1,11 @@
 #include <iostream>
+import person;
 
 int main()
 {
-	std::cout << "Hello World!\n";
+
+	Person person{ "John Doe", 30 };
+
+	auto gender = person.GetGender();
+	std::cout << gender << std::endl;
 }
