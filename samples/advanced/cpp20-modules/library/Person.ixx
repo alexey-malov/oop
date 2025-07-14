@@ -15,7 +15,7 @@ export enum class Gender
 	Female
 };
 
-export std::ostream& operator<<(std::ostream& out, Gender g)
+export inline std::ostream& operator<<(std::ostream& out, Gender g)
 {
 	return out << ((g == Gender::Male) ? "male" : "female");
 }

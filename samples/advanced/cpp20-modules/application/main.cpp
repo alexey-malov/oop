@@ -3,7 +3,6 @@ import person;
 
 int main()
 {
-
 	Person person{ "John Doe", 30 };
 
 	auto gender = person.GetGender();
