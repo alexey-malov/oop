@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Player API Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #player {
+            width: 640px;
+            height: 390px;
+        }
+    </style>
+</head>
+<body>
+    <div id="player"></div>
+
+    <script>
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        let player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '390',
+                width: '640',
+                videoId: 'IbY96iIv5OA',
+                playerVars: {
+					'autoplay': 0,
+                    'playsinline': 1,
+                    'controls': 1,
+                    'rel': 0,
+					'modestbranding': 1,
+					'widget_referrer': null,
+                },
+                events: {
+                    'onReady': () => console.log('YouTube player is ready'),
+                    'onStateChange': () => {},
+                }
+            });
+        }
+    </script>
+</body>
+</html>
