@@ -34,14 +34,18 @@
 | функция или метод                | ExtractZip, ShouldQuit       |               |
 | поле класса                      | m_taskQueue, m_children      | m_            |
 | локальная переменная             | bookCount, env               |               |
-| локальная константа              | mayExpand                    |               |
+| локальная константа              | MAX_SPEED                    |               |
+| глобальная константа             | NUMBER_OF_USERS              |               |
 | параметр функции                 | bookCount, env               |               |
 | варианты enum class              | BusinessTrial                |               |
-| константы и варианты enum        | bookCount, env               |               |
+| варианты plain enum              | BOOK_COUNT, ENV_TYPE         |               |
 | параметр template<>              | Callback, ArraySize          |               |
 | макрос                           | ISPRING_BRAND_NAME           | ISPRING_, IS_ |
 | неймспейс                        | hidden_tasks                 |               |
 | глобальная переменная            | оно тебе надо? g_cachedTypes | g_            |
+
+> Константы всегда именуются в `UPPER_SNAKE_CASE` независимо от области видимости.
+> Это отличает их от переменных и позволяет сразу видеть, что значение не меняется.
 
 # Форматирование
 
@@ -57,6 +61,19 @@ Visual Assist Options\Display\Display indicator after column
 * Ставьте скобки на новой строке везде, кроме случаев, когда продолжается выражение (начало lambda function или initializer list)
 * [NL.15: используйте пробелы умеренно](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#nl15-use-spaces-sparingly)
 * Символы ссылок и указателей прижимайте к типу данных: `T& operator[](size_t);`
+* Всегда используйте фигурные скобки для тел `if` / `else` / `for` / `while` / `do`, даже если тело состоит из одной инструкции. Это предотвращает ошибки при добавлении строк и делает код единообразным.
+
+```cpp
+// плохо
+if (error)
+    return false;
+
+// хорошо
+if (error)
+{
+    return false;
+}
+```
 
 Пример:
 
@@ -91,6 +108,18 @@ void CallAddWords()
 
 ![Dont Indent Namespace](/uploads/desktop-public/dont-indent-namespace.png "Dont Indent Namespace")
 
+* [SF.7: Не пишите `using namespace` в глобальной области видимости заголовочного файла](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#sf7-dont-write-using-namespace-at-global-scope-in-a-header-file). Это загрязняет пространство имён для всех, кто подключает заголовочный файл, и может вызвать неожиданные конфликты имён.
+
+```cpp
+// плохо (в заголовочном файле)
+using namespace std;
+
+string Greet(const string& name); // засоряет глобальное пространство имён
+
+// хорошо (в заголовочном файле)
+std::string Greet(const std::string& name);
+```
+
 # Выражения и инструкции
 
 
@@ -101,6 +130,20 @@ void CallAddWords()
 * [ES.41 Если сомневаетесь в приоритете операторов, добавьте скобки](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es41-if-in-doubt-about-operator-precedence-parenthesize)
 * [ES.45 Избегайте "магических констант", используйте именованные константы](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es45-avoid-magic-constants-use-symbolic-constants)
 * [ES.49 Если вам нужно преобразование типа, используйте именованное преобразование](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es49-if-you-must-use-a-cast-use-a-named-cast)
+* [ES.10: Объявляйте не более одного имени в одном объявлении](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es10-declare-one-name-only-per-declaration). Несколько переменных в одной строке ухудшают читаемость и маскируют различие между указателем и обычной переменной.
+
+```cpp
+// плохо
+int a, b, c;
+int* p, q; // q — не указатель, несмотря на внешний вид
+
+// хорошо
+int a;
+int b;
+int c;
+int* p;
+int* q;
+```
 
 
 # Функции и их тела
@@ -117,6 +160,7 @@ void CallAddWords()
 
 * [F.20: Для передачи результатов предпочитайте использовать возвращаемое значение, а не out-параметры](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f20-for-out-output-values-prefer-return-values-to-output-parameters)
 * [F.21: Вместо создания множества out-параметров старайтесь возвращать структуру](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f21-to-return-multiple-out-values-prefer-returning-a-struct)
+* Размещайте функции в файле сверху вниз, как книгу: функция, которую читают первой (`main` или публичный API), идёт в начале файла. Все вспомогательные функции, которые она вызывает, — ниже. Это позволяет читать файл сверху вниз, не прыгая назад.
 
 Таблица типичных способов передачи параметров (из [F.15: Prefer simple and conventional ways of passing information ](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f15-prefer-simple-and-conventional-ways-of-passing-information)):
 
